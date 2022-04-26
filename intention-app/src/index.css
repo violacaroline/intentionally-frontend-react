@@ -10,6 +10,13 @@ html {
   color: #05546a;
 }
 
+.content {
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* NAVBAR STYLES */
+
 .navbar {
   padding: 20px;
   display: flex;
@@ -34,6 +41,8 @@ html {
 .navbar a:hover {
   color: #3a94ad;
 }
+
+/* HOME PAGE STYLES */
 
 .home {
   min-width: 800px;
@@ -64,7 +73,43 @@ button:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
 }
 
-.content {
-  margin: 40px auto;
-  padding: 20px;
+/* REGISTER AND LOGIN PAGE STYLES */
+
+.input-form {
+  max-width: 50%;
+  white-space: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label {
+  margin: 6px;
+}
+
+input {
+  display: list-item;
+  min-width: 70%;
+  padding: 7px 20px;
+  margin: 8px 0;
+  border: 1.5px solid #05546a;
+  border-radius: 4px;
+  font-size: 16px; 
+  font-family: Domine;
+}
+
+.register-checkbox {
+  accent-color: #05546a;
+  display: inline-block;
+  height: 15px;
+  margin-top: 5%;
+}
+
+.submit-button {
+  background-color: #05546a;
+  font-family: Domine;
+  color: whitesmoke;
+  border: none;
+  border-radius: 10px;
+  margin-top: 5%;
+  min-width: 20%;
 }
