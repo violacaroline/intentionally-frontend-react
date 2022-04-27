@@ -9,7 +9,7 @@ const Register = () => {
       <label htmlFor="username">Username</label>
       <input type="text" id="username" />
       <label htmlFor="password">Pass Phrase</label>
-      <input type="text" id="password" />
+      <input type="password" id="password" />
       <label htmlFor="email">Email</label>
       <input type="text" id="email" />
       <label htmlFor="admin">Are you an admin?</label>
