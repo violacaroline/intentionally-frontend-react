@@ -88,8 +88,6 @@ button:hover {
   overflow: auto;
 }
 
-/* FIX THIS STUFF, WIDTH HEIGHT FORM */
-
 .input-form {
   min-width: 25%;
   max-height: 90%;
@@ -142,4 +140,26 @@ input {
 
 .submit-button:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* MOOD PAGE STYLES */
+
+.mood {
+  display: flex;
+}
+
+.mood-description {
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+
+.mood-description:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+.mood-description h2 {
+  font-size: 20px;
+  color: #05546a;
+  margin-bottom: 8px;
 }
