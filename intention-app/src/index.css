@@ -145,20 +145,52 @@ input {
 /* MOOD PAGE STYLES */
 
 .mood {
+  background-image: url('../public/images/login-ocean.jpg');
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  justify-content: space-around; 
+  align-items: center;
 }
 
 .mood-description {
+  background-color: white;
+  width: 300px;
+  height: 250px;
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
 }
 
-.mood-description:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-}
 
 .mood-description h2 {
+  font-size: 20px;
+  color: #05546a;
+  margin-bottom: 8px;
+}
+
+/* INTENTION STYLES */
+
+.intention {
+  background-image: url('../public/images/login-ocean.jpg');
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row; 
+  justify-content: space-around; 
+  align-items: center;
+}
+
+.intention-description {
+  background-color: white;
+  width: 300px;
+  height: 250px;
+  padding: 10px 16px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+}
+
+
+.intention-description h2 {
   font-size: 20px;
   color: #05546a;
   margin-bottom: 8px;

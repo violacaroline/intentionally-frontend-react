@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 const Mood = () => {
-  const [moods, setMoods] = useState([
+  const [moods] = useState([
     { mood: 'Joy', description: 'Feelings of bliss, gratitude, passion, calm and fulfillness.', learning: 'Something needs to be celebrated & appreciated.' },
     { mood: 'Fear', description: 'Feelings of concern, dread, panic and worry.', learning: 'Something needs to be learned, invites full attention and presence.' },
     { mood: 'Sadness', description: 'Feelings of remorse, agony, despair, heartbreak and helplessness.', learning: 'Something meaningful is going away, a person - a dream.' },
@@ -18,8 +18,7 @@ const Mood = () => {
         <h3>Learning</h3>
         <p>{ mood.learning }</p>
         </div>
-      ))}
-      
+      ))}     
     </div>
    )
 }
