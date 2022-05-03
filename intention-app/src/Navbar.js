@@ -8,6 +8,7 @@ const Navbar = () => {
         <a href="/moods">Our moods</a>
         <a href="/practise">Practise</a>
         <a href="/login">Log In</a>
+        <a href="/logout">Log Out</a>
         <a href="/register">Register</a>
       </div>
     </nav>

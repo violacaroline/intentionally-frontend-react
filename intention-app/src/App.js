@@ -10,11 +10,11 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="content">
-        {/* <Home /> */}
+        <Home />
         {/* <Register /> */}
         {/* <Login /> */}
         {/* <Mood /> */}
-        <Intention />
+        {/* <Intention /> */}
       </div>
     </div>
   );

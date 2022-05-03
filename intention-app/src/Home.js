@@ -4,17 +4,24 @@ const Home = () => {
     return require(`../public/images/${imgName}`)
   }
 
-  const handleRegisterClick =  () => {
+  const handleRegisterClick = () => {
     console.log('You want to live more intentionally?')
   }
 
-  return (  
+  return (
     <div className="home">
-      <h2 className="text-home" >Home page</h2>
-      <button className="text-home" onClick={ handleRegisterClick }>Register</button>
-      <img className="img-home" src={ IMG("home-ocean.jpg") } alt="" />
+      <div className="home-text">
+        <h2>Home page</h2>
+        <h3 className="space-around">There you are!</h3>
+        <p className="space-around">Have you meditated yet?</p>
+        <p className="space-around">Intentionally is here to help you get started right now!</p>
+        <button className="space-around" onClick={handleRegisterClick}>Register</button>
+      </div>
+      <div className="home-img">
+        <img className="img-home" src={IMG("home-ocean.jpg")} alt="" />
+      </div>
     </div>
   )
 }
- 
+
 export default Home;

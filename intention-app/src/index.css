@@ -46,16 +46,23 @@ html {
 
 .home {
   min-width: 800px;
-  max-width: 1000px;
+  display: flex;
+  justify-content: center;
 }
 
-.text-home {
-  margin-left: 70px;
+.home-text {
+  padding: 20px;
+  min-width: 50%;
+  text-align: center;
+}
+
+.home-img {
+  padding: 20px;
+  min-width: 50%;
+  margin-left: auto 0;
 }
 
 .img-home {
-  float: right;
-  margin-bottom: 30px;
   max-width: 500px;
   max-height: 400px;
 }
@@ -71,8 +78,13 @@ button {
 
 button:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  ;
 }
+
+.space-around {
+  margin-bottom: 30px;
+  white-space: nowrap;
+}
+
 
 /* REGISTER AND LOGIN PAGE STYLES */
 

@@ -6,8 +6,14 @@ const Intention = () => {
 
   const makeAPICall = async () => {
     try {
-      const response = await fetch('https://cscloud7-193.lnu.se/intentionally/intention-service/api/v1/intentions', {mode:'cors'});
-      const data = await response.json();
+      const response = await fetch('https://cscloud7-193.lnu.se/intentionally/intention-service/api/v1/intentions', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'no-cors'
+    })
+      const data = await response.json()
       console.log({ data })
     }
     catch (e) {
@@ -15,7 +21,7 @@ const Intention = () => {
     }
   }
   useEffect(() => {
-    makeAPICall();
+    makeAPICall()
   }, [])
 
   // useEffect(() => {
