@@ -11,7 +11,6 @@ const Home = () => {
   return (
     <div className="home">
       <div className="home-text">
-        <h2>Home page</h2>
         <h3 className="space-around">There you are!</h3>
         <p className="space-around">Have you meditated yet?</p>
         <p className="space-around">Intentionally is here to help you get started right now!</p>
