@@ -1,15 +1,17 @@
+import  { Link } from 'react-router-dom'
+
 const Navbar = () => {
   const title = 'Intentionally'
   return (
     <nav className="navbar">
       <h1 className="heading"> {title} </h1>
       <div className="links">
-        <a href="/">Home</a>
-        <a href="/moods">Our moods</a>
-        <a href="/practise">Practise</a>
-        <a href="/login">Log In</a>
-        <a href="/logout">Log Out</a>
-        <a href="/register">Register</a>
+        <Link to="/">Home</Link>
+        <Link to="/moods">Our moods</Link>
+        <Link to="/practice">Practise</Link>
+        <Link to="/register">Register</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/logout">Logout</Link>       
       </div>
     </nav>
   )
