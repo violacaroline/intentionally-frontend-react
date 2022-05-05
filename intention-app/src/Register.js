@@ -109,11 +109,10 @@ const Register = () => {
   return (
 
     <section className="register">
-
       <form className="input-form" onSubmit={handleSubmit}>
         {
           success ? (
-            <section className="success-register">
+            <section className="success-register-login">
               <h3 >You are Registered</h3>
               <p>
                 <Link className="login-link" to="/login">Login</Link>
@@ -200,11 +199,8 @@ const Register = () => {
               <input type="submit" value={'Submit  ' + String.fromCharCode("0x00002661")} className="submit-button" />
             </>
           )}
-
       </form>
-
     </section>
-
   )
 }
 

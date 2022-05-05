@@ -154,20 +154,20 @@ input {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.success-register {
+.success-register-login {
   justify-content: center;
 }
 
-.success-register h3 {
+.success-register-login h3 {
   text-align: center;
   margin-bottom: 30%;
 }
 
-.success-register p {
+.success-register-login p {
   text-align: center;
 }
 
-.login-link {
+.link {
   text-decoration: none;
   background-color: #05546a;
   font-family: Domine;
@@ -177,7 +177,7 @@ input {
   padding: 10px 40px 10px 40px;
 }
 
-.login-link:hover {
+.link:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
