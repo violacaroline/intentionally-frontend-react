@@ -2,16 +2,16 @@ import { useState, useEffect, useRef } from 'react'
 import axios from './api/axios'
 import validator from 'validator'
 
-const nameRegex = /^[0-9][a-zA-Z]{2,256}$/
-const passwordRegex = /^[0-9][a-zA-Z]{10,256}$/
+const nameRegex = /^[A-Za-z][A-Za-z0-9_]{2,256}$/
+const passwordRegex = /^(?=.*[A-Z])(?=.*[\W])(?=.*[0-9])(?=.*[a-z]).{10,256}$/
 
 const Register = () => {
   const userRef = useRef()
-  const errorRef = useState()
+  const errorRef = useRef()
 
-  const [username, setUserName] = useState('')
-  const [validName, setValidUserName] = useState(false)
-  const [userFocus, setUserFocus] = useState(false)
+  const [username, setUsername] = useState('')
+  const [validName, setValidUsername] = useState(false)
+  const [usernameFocus, setUsernameFocus] = useState(false)
 
   const [password, setPassword] = useState('')
   const [validPassword, setValidPassword] = useState(false)
@@ -37,11 +37,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false)
 
   useEffect(() => {
-    userRef.current.focus()
-  }, [])
-
-  useEffect(() => {
-    setValidUserName(nameRegex.test(username))
+    setValidUsername(nameRegex.test(username))
   }, [username])
 
   useEffect(() => {
@@ -79,8 +75,10 @@ const Register = () => {
       const response = await axios.post('/register',
         JSON.stringify({ username, password, firstName, lastName, email }),
         {
-          headers: { 'Content-Type': 'application/json' },
-          withCredentials: true
+          headers: {
+            'Content-Type': 'application/json'
+          }
+          // withCredentials: true
         }
       );
       console.log(response?.data);
@@ -89,7 +87,7 @@ const Register = () => {
       setSuccess(true)
       //clear state and controlled inputs
       //need value attrib on inputs for this
-      setUserName('')
+      setUsername('')
       setPassword('')
       setMatchPwd('')
       setFirstName('')
@@ -97,9 +95,9 @@ const Register = () => {
       setEmail('')
     } catch (err) {
       if (!err?.response) {
-        setErrMsg('No Server Response')
+        setErrMsg('No Server Response. No internet?')
       } else if (err.response?.status === 409) {
-        setErrMsg('Username Taken')
+        setErrMsg('Username Taken') // WONT NEED THIS
       } else {
         setErrMsg('Registration Failed')
       }
@@ -110,11 +108,12 @@ const Register = () => {
   return (
     <section className="register">
       <form className="input-form" onSubmit={handleSubmit}>
-        <p ref={errorRef} style={{color: "red"}} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+        <p ref={errorRef} style={{ color: "red", size: "10px" }} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
         <label htmlFor="firstName">First Name</label>
         <input
           type="text"
           id="firstName"
+          autoFocus="on"
           autoComplete="off"
           onChange={(e) => setFirstName(e.target.value)}
           value={firstName}
@@ -141,12 +140,13 @@ const Register = () => {
           id="username"
           ref={userRef}
           autoComplete="off"
-          onChange={(e) => setUserName(e.target.value)}
+          onChange={(e) => setUsername(e.target.value)}
           value={username}
           required
           aria-invalid={validName ? "false" : "true"}
-          onFocus={() => setUserFocus(true)}
-          onBlur={() => setUserFocus(false)}
+          aria-describedby="uidnote"
+          onFocus={() => setUsernameFocus(true)}
+          onBlur={() => setUsernameFocus(false)}
         />
         <label htmlFor="password">Pass Phrase</label>
         <input
