@@ -43,10 +43,8 @@ const Login = () => {
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response')
-      } else if (err.response?.status === 400) {
-        setErrMsg('Missing Username or Password')
       } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized')
+        setErrMsg('Unauthorized, invalid credentials')
       } else {
         setErrMsg('Login Failed')
       }
@@ -62,7 +60,7 @@ const Login = () => {
             <section className="success-register-login">
               <h3 >You are Logged In</h3>
               <p>
-                <Link className="link" to="/home">Home</Link>
+                <Link className="link" to="/">Home</Link>
               </p>
             </section >
           ) : (
