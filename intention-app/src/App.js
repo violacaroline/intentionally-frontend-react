@@ -4,6 +4,7 @@ import Home from './Home'
 import Register from './Register'
 import Login from './Login'
 import Mood from './Mood'
+import Practice from './Practice'
 
 function App () {
   return (
@@ -16,6 +17,7 @@ function App () {
             <Route path='/register' element={ <Register /> } />
             <Route path='/moods' element={ <Mood /> } />
             <Route path='/login' element={ <Login /> } />
+            <Route path='/practice' element={ <Practice /> } />
           </Routes>
         </div>
       </div>

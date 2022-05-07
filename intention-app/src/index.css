@@ -56,6 +56,10 @@ html {
   text-align: center;
 }
 
+.home-text p {
+  margin-bottom: 7%;
+}
+
 .home-img {
   padding: 20px;
   min-width: 50%;
@@ -67,7 +71,8 @@ html {
   max-height: 400px;
 }
 
-button {
+.link-home {
+  text-decoration: none;
   background-color: #05546a;
   font-family: Domine;
   color: whitesmoke;
@@ -76,7 +81,7 @@ button {
   padding: 10px 40px 10px 40px;
 }
 
-button:hover {
+.link-home:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -167,7 +172,7 @@ input {
   text-align: center;
 }
 
-.link {
+.link-login {
   text-decoration: none;
   background-color: #05546a;
   font-family: Domine;
@@ -177,7 +182,7 @@ input {
   padding: 10px 40px 10px 40px;
 }
 
-.link:hover {
+.link-login:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -233,4 +238,48 @@ input {
   font-size: 20px;
   color: #05546a;
   margin-bottom: 8px;
+}
+
+/* PRACTICE PAGE STYLES */
+
+.practice {
+  min-width: 800px;
+  margin: 0 50px 0 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.practice-links {
+  display: inline-block;
+  text-align: center;
+  min-width: 50%;
+  min-height: 500px;
+  margin: 0 50px;
+  background-color: #05546a;
+}
+
+.practice-img {
+  display: inline-block;
+  min-width: 50%;
+  min-height: 500px;
+  background-image: url('../public/images/login-ocean.jpg');
+
+}
+
+.link-practice {
+  display: inline-block;
+  width: 30%;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  font-family: Domine;
+  color: #05546a;
+  border: none;
+  border-radius: 30px;
+  padding: 20px 40px 20px 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.link-practice:hover {
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
 }

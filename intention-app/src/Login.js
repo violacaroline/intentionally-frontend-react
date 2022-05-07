@@ -26,8 +26,8 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const response = await axios.post('/login',
-        JSON.stringify({ username, password }),
+      const response = await axios.post('/login', // AXIOS VS FETCH - AXIOS WILL THROW AN ERROR IF THERE WAS ONE, DONT NEED TO CHECK
+        JSON.stringify({ username, password }), // AXIOS VS FETCH, NOT NECESSARY TO TAKE THE RESPONSE AND CONVERT IT TO JSON, AXIOS WILL DO IT
         {
           headers: { 'Content-Type': 'application/json' },
           // withCredentials: true // LOOK INTO THIS
@@ -60,7 +60,7 @@ const Login = () => {
             <section className="success-register-login">
               <h3 >You are Logged In</h3>
               <p>
-                <Link className="link" to="/">Home</Link>
+                <Link className="link-login" to="/practice">{'Practice  ' + String.fromCharCode("0x00002661")} </Link>
               </p>
             </section >
           ) : (
