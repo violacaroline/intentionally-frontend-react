@@ -12,27 +12,21 @@ const Register = () => {
 
   const [username, setUsername] = useState('')
   const [validName, setValidUsername] = useState(false)
-  const [usernameFocus, setUsernameFocus] = useState(false)
 
   const [password, setPassword] = useState('')
   const [validPassword, setValidPassword] = useState(false)
-  const [passwordFocus, setPasswordFocus] = useState(false)
 
   const [matchPwd, setMatchPwd] = useState('')
   const [validMatch, setValidMatch] = useState(false)
-  const [matchFocus, setMatchFocus] = useState(false)
 
   const [firstName, setFirstName] = useState('')
   const [validFirstName, setValidFirstName] = useState(false)
-  const [firstNameFocus, setFirstNameFocus] = useState(false)
 
   const [lastName, setLastName] = useState('');
   const [validLastName, setValidLastName] = useState(false)
-  const [lastNameFocus, setLastNameFocus] = useState(false)
 
   const [email, setEmail] = useState('');
   const [validEmail, setValidEmail] = useState(false)
-  const [emailFocus, setEmailFocus] = useState(false)
 
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
@@ -115,7 +109,7 @@ const Register = () => {
             <section className="success-register-login">
               <h3 >You are Registered</h3>
               <p>
-                <Link className="login-link" to="/login">Login</Link>
+                <Link className="link-login" to="/login">Login</Link>
               </p>
             </section >
           ) : (
@@ -130,9 +124,7 @@ const Register = () => {
                 onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
                 required
-                aria-invalid={validFirstName ? "false" : "true"}
-                onFocus={() => setFirstNameFocus(true)}
-                onBlur={() => setFirstNameFocus(false)}
+                aria-invalid={validFirstName ? "false" : "true"}        
               />
               <label htmlFor="lastName">Last Name</label>
               <input
@@ -142,9 +134,7 @@ const Register = () => {
                 onChange={(e) => setLastName(e.target.value)}
                 value={lastName}
                 required
-                aria-invalid={validLastName ? "false" : "true"}
-                onFocus={() => setLastNameFocus(true)}
-                onBlur={() => setLastNameFocus(false)}
+                aria-invalid={validLastName ? "false" : "true"}           
               />
               <label htmlFor="username">Username</label>
               <input
@@ -156,9 +146,7 @@ const Register = () => {
                 value={username}
                 required
                 aria-invalid={validName ? "false" : "true"}
-                aria-describedby="uidnote"
-                onFocus={() => setUsernameFocus(true)}
-                onBlur={() => setUsernameFocus(false)}
+                aria-describedby="uidnote"          
               />
               <label htmlFor="password">Pass Phrase</label>
               <input
@@ -167,9 +155,7 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
                 required
-                aria-invalid={validPassword ? "false" : "true"}
-                onFocus={() => setPasswordFocus(true)}
-                onBlur={() => setPasswordFocus(false)}
+                aria-invalid={validPassword ? "false" : "true"}             
               />
               <label htmlFor="confirmPassword">Confirm Pass Phrase</label>
               <input
@@ -178,9 +164,7 @@ const Register = () => {
                 onChange={(e) => setMatchPwd(e.target.value)}
                 value={matchPwd}
                 required
-                aria-invalid={validMatch ? "false" : "true"}
-                onFocus={() => setMatchFocus(true)}
-                onBlur={() => setMatchFocus(false)}
+                aria-invalid={validMatch ? "false" : "true"}               
               />
               <label htmlFor="email">Email</label>
               <input
@@ -190,9 +174,7 @@ const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 required
-                aria-invalid={validEmail ? "false" : "true"}
-                onFocus={() => setEmailFocus(true)}
-                onBlur={() => setEmailFocus(false)}
+                aria-invalid={validEmail ? "false" : "true"}             
               />
               <label htmlFor="admin">Are you an admin?</label>
               <input type="checkbox" className="register-checkbox" id="admin" />

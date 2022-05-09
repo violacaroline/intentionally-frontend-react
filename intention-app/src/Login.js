@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
   const { setAuth } = useContext(AuthContext)
-  // const userRef = useRef()
   const errRef = useRef()
 
   const [username, setUsername] = useState('')
@@ -14,12 +13,9 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
 
-  // useEffect(() => {
-  //   userRef.current.focus();
-  // }, [])
 
   useEffect(() => {
-    setErrMsg('');
+    setErrMsg('')
   }, [username, password])
 
   const handleSubmit = async (e) => {
