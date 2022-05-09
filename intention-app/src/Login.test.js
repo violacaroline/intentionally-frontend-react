@@ -1,17 +1,25 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Login from './Login'
 
-describe('login', () => {
-  test('Username input field to be in the document', () => {
-    const view = render(<Login />)
-    const inputUsernameElement = view.getByText('Username')
-    expect(inputUsernameElement).toBeInTheDocument()
+
+describe('Render Login page', () => {
+  it('Renders a Username input field', () => {
+    render(<Login />)
+    const usernameInputField = screen.getByText("Username")
+    expect(usernameInputField).toBeInTheDocument()
   })
 
-  test('Pass Phrase input field to be in the document', () => {
-    const view = render(<Login />)
-    const inputPassPhraseElement = view.getByText('Pass Phrase')
-    expect(inputPassPhraseElement).toBeInTheDocument()
+  it('Renders a Pass Phrase input field', () => {
+    render(<Login />)
+    const passwordInputField = screen.getByText("Pass Phrase")
+    expect(passwordInputField).toBeInTheDocument()
+  })
+
+  it('Renders a submit input field', () => {
+    render(<Login />)
+    const submitInputField = screen.getByText("Submit "  + String.fromCharCode("0x00002661"))
+    expect(submitInputField).toBeInTheDocument()
   })
 })
+

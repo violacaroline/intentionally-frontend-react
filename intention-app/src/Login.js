@@ -50,7 +50,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <form className="input-form" onSubmit={ handleSubmit }>
+      <form className="input-form" data-testid='form' onSubmit={ handleSubmit }>
         {
           success ? (
             <section className="success-register-login">
