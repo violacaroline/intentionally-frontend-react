@@ -42,6 +42,23 @@ html {
   color: #3a94ad;
 }
 
+.navbar button {
+  font-family: Domine;
+  font-size: 16px;
+  border-radius: 20%;
+  border: none;
+  background-color: white;
+  margin-left: 16px;
+  text-decoration: none;
+  color: #05546a;
+  padding: 6px;
+}
+
+.navbar button:hover {
+  color: #3a94ad;
+  cursor: pointer;
+}
+
 /* HOME PAGE STYLES */
 
 .home {
@@ -192,8 +209,8 @@ input {
   background-image: url('../public/images/login-ocean.jpg');
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row; 
-  justify-content: space-around; 
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -219,8 +236,8 @@ input {
   background-image: url('../public/images/login-ocean.jpg');
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row; 
-  justify-content: space-around; 
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -283,4 +300,84 @@ input {
 
 .link-practice:hover {
   box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+}
+
+/* PRACTICE NOW PAGE STYLES */
+
+.practice-now {
+  background-image: url('../public/images/login-ocean.jpg');
+  margin: 0 auto;
+  min-width: 600px;
+  width: 50%;
+  height: 100vh;
+  padding: 20px;
+  display: flexbox;
+}
+
+.feeling-heading {
+  color: white;
+  font-family: Dancing Script;
+  white-space: nowrap;
+  width: 60%;
+  margin: 0 auto;
+  padding: 2%;
+}
+
+.feeling {
+  width: fit-content;
+}
+
+.feelings-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.feeling button {
+  display: block;
+  border: none;
+  font-family: Dancing Script;
+  font-size: 2em;
+  background-color: white;
+  text-align: center;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  padding: 3%;
+}
+
+.feeling button:hover {
+  box-shadow: inset rgba(0, 0, 0, 0.9) 0px 5px 15px;
+  transform: translateY(-0.25em);
+}
+
+.feeling-joy {
+  margin: 0 auto;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.feeling-fear {
+  margin: 0 auto;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.feeling-anger {
+  margin: 0 auto;
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.feeling-sadness {
+  margin: 0 auto;
+  grid-column: 1 / 2;
+  grid-row: 3 / 3;
+}
+
+.feeling-disgust {
+  margin: 0 auto;
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
 }

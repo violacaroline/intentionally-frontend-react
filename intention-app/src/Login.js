@@ -30,7 +30,7 @@ const Login = () => {
         }
       );
       console.log('The Response from login: ', JSON.stringify(response?.data))
-      const accessToken = response?.data?.accessToken
+      const accessToken = response?.data?.access_token
 
       setAuth({ username, password, accessToken })
       setUsername('')

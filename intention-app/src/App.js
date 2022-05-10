@@ -5,6 +5,7 @@ import Register from './Register'
 import Login from './Login'
 import Mood from './Mood'
 import Practice from './Practice'
+import PracticeNow from './PracticeNow'
 
 function App () {
   return (
@@ -18,6 +19,7 @@ function App () {
             <Route path='/moods' element={ <Mood /> } />
             <Route path='/login' element={ <Login /> } />
             <Route path='/practice' element={ <Practice /> } />
+            <Route path='/practice-now' element={ <PracticeNow /> } />
           </Routes>
         </div>
       </div>

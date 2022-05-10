@@ -10,8 +10,8 @@ const Mood = () => {
   ])
   return ( 
     <div className="mood">
-      { moods.map((mood) => (
-        <div className="mood-description">
+      { moods.map((mood, index) => (
+        <div key={index} className="mood-description">
         <h2>{ mood.mood }</h2>
         <h3>Description</h3>
         <p>{ mood.description }</p>
