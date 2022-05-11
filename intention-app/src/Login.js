@@ -13,7 +13,6 @@ const Login = () => {
   const [errMsg, setErrMsg] = useState('')
   const [success, setSuccess] = useState(false)
 
-
   useEffect(() => {
     setErrMsg('')
   }, [username, password])
@@ -31,6 +30,7 @@ const Login = () => {
       );
       console.log('The Response from login: ', JSON.stringify(response?.data))
       const accessToken = response?.data?.access_token
+
 
       setAuth({ username, password, accessToken })
       setUsername('')

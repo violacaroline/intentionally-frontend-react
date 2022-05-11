@@ -8,8 +8,12 @@ const Navbar = () => {
   const history = useNavigate()
 
   const logOut = () => {
+    console.log('Auth from Navbar logout before', auth)
     setAuth()
+    
+    console.log('Auth from Navbar logout after', auth)
     history('/')
+    console.log('Auth from Navbar logout after redirect', auth)
    }
 
   const title = 'Intentionally'
