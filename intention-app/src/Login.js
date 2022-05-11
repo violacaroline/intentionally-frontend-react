@@ -21,7 +21,7 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const response = await axios.post('/login', // AXIOS VS FETCH - AXIOS WILL THROW AN ERROR IF THERE WAS ONE, DONT NEED TO CHECK
+      const response = await axios.post('http://localhost:8086/api/v1/login', // AXIOS VS FETCH - AXIOS WILL THROW AN ERROR IF THERE WAS ONE, DONT NEED TO CHECK
         JSON.stringify({ username, password }), // AXIOS VS FETCH, NOT NECESSARY TO TAKE THE RESPONSE AND CONVERT IT TO JSON, AXIOS WILL DO IT
         {
           headers: { 'Content-Type': 'application/json' },
