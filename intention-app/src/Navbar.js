@@ -3,20 +3,19 @@ import { useContext } from 'react'
 import AuthContext from './context/ProviderAuth.js'
 
 
-const Navbar = () => {
+const Navbar = () => {  
+  const title = 'Intentionally'
   const { auth, setAuth } = useContext(AuthContext)
   const history = useNavigate()
 
   const logOut = () => {
     console.log('Auth from Navbar logout before', auth)
-    setAuth()
-    
+    setAuth()    
     console.log('Auth from Navbar logout after', auth)
     history('/')
     console.log('Auth from Navbar logout after redirect', auth)
    }
 
-  const title = 'Intentionally'
   return (
     <nav className="navbar">
       <h1 className="heading"> {title} </h1>
