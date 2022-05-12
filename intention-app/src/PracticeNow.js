@@ -1,9 +1,17 @@
 import axios from "./api/axios"
+import useAuth from "./hooks/useAuth"
 
 const PracticeNow = () => {
+  const { auth } = useAuth()
+  console.log('Accesstoken from Practice now', auth.accessToken)
   const fetchJoyIntention = async () => {
     try {
-      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+      const response = await axios.get('http://localhost:8085/api/v1/intentions', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: auth.accessToken
+        }
+      })
 
       const intentions = Array.from(response.data)
 
@@ -18,7 +26,12 @@ const PracticeNow = () => {
 
   const fetchFearIntention = async () => {
     try {
-      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+      const response = await axios.get('http://localhost:8085/api/v1/intentions', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: auth.accessToken
+        }
+      })
 
       const intentions = Array.from(response.data)
 
@@ -33,7 +46,12 @@ const PracticeNow = () => {
 
   const fetchAngerIntention = async () => {
     try {
-      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+      const response = await axios.get('http://localhost:8085/api/v1/intentions', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: auth.accessToken
+        }
+      })
 
       const intentions = Array.from(response.data)
 
@@ -48,7 +66,12 @@ const PracticeNow = () => {
 
   const fetchSadnessIntention = async () => {
     try {
-      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+      const response = await axios.get('http://localhost:8085/api/v1/intentions', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: auth.accessToken
+        }
+      })
 
       const intentions = Array.from(response.data)
 
@@ -63,7 +86,12 @@ const PracticeNow = () => {
 
   const fetchDisgustIntention = async () => {
     try {
-      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+      const response = await axios.get('http://localhost:8085/api/v1/intentions', {
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: auth.accessToken
+        }
+      })
 
       const intentions = Array.from(response.data)
 

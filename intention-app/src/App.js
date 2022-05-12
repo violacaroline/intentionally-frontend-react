@@ -6,7 +6,6 @@ import Login from './Login'
 import Mood from './Mood'
 import Practice from './Practice'
 import PracticeNow from './PracticeNow'
-import ProtectedRoutes from './ProtectedRoutes'
 
 function App () {
   return (
@@ -19,9 +18,7 @@ function App () {
             <Route path='/register' element={ <Register /> } />
             <Route path='/moods' element={ <Mood /> } />
             <Route path='/login' element={ <Login /> } />
-            <Route element={< ProtectedRoutes />}>
             <Route path='/practice' element={ <Practice /> } />
-            </Route>
             <Route path='/practice-now' element={ <PracticeNow /> } />
           </Routes>
         </div>
