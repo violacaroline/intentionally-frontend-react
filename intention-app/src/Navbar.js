@@ -10,7 +10,12 @@ const Navbar = () => {
 
   const logOut = () => {
     console.log('Auth from Navbar logout before', auth)
+<<<<<<< HEAD
     setAuth()    
+=======
+    setAuth(null)
+    
+>>>>>>> f16d66fc3a6fc595eba87a62a936e44c06ce9099
     console.log('Auth from Navbar logout after', auth)
     history('/')
     console.log('Auth from Navbar logout after redirect', auth)

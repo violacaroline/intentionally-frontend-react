@@ -4,6 +4,7 @@ const AuthContext = createContext({})
 
 export const ProviderAuth = ({ children }) => {
   const [auth, setAuth] = useState({})
+  console.log('From context', auth)
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>

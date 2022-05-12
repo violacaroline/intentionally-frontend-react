@@ -1,4 +1,81 @@
+import axios from "./api/axios"
+
 const PracticeNow = () => {
+  const fetchJoyIntention = async () => {
+    try {
+      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+
+      const intentions = Array.from(response.data)
+
+      const joyIntentions = intentions.filter(intention => intention.mood === 'joy')
+
+      const joyIntention = joyIntentions[Math.floor(Math.random() * joyIntentions.length)]
+      console.log(joyIntention)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const fetchFearIntention = async () => {
+    try {
+      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+
+      const intentions = Array.from(response.data)
+
+      const fearIntentions = intentions.filter(intention => intention.mood === 'fear')
+
+      const fearIntentionData = fearIntentions[Math.floor(Math.random() * fearIntentions.length)]
+      console.log(fearIntentionData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const fetchAngerIntention = async () => {
+    try {
+      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+
+      const intentions = Array.from(response.data)
+
+      const angerIntentions = intentions.filter(intention => intention.mood === 'anger')
+
+      const angerIntention = angerIntentions[Math.floor(Math.random() * angerIntentions.length)]
+      console.log(angerIntention)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const fetchSadnessIntention = async () => {
+    try {
+      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+
+      const intentions = Array.from(response.data)
+
+      const sadnessIntentions = intentions.filter(intention => intention.mood === 'sadness')
+
+      const sadnessIntention = sadnessIntentions[Math.floor(Math.random() * sadnessIntentions.length)]
+      console.log(sadnessIntention)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const fetchDisgustIntention = async () => {
+    try {
+      const response = await axios.get('http://localhost:8085/api/v1/intentions')
+
+      const intentions = Array.from(response.data)
+
+      const disgustIntentions = intentions.filter(intention => intention.mood === 'disgust')
+
+      const disgustIntention = disgustIntentions[Math.floor(Math.random() * disgustIntentions.length)]
+      console.log(disgustIntention)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className="practice-now">
       <div className="feeling-heading">
@@ -6,19 +83,19 @@ const PracticeNow = () => {
       </div>
       <div className="feelings-buttons">
         <div className={"feeling  feeling-joy"}>
-          <button className="joy">Joy</button>
+          <button onClick={fetchJoyIntention} className="joy">Joy</button>
         </div>
         <div className={"feeling  feeling-fear"}>
-          <button className="fear">Fear</button>
+          <button onClick={fetchFearIntention} className="fear">Fear</button>
         </div>
         <div className={"feeling  feeling-anger"}>
-          <button className="anger">Anger</button>
+          <button onClick={fetchAngerIntention} className="anger">Anger</button>
         </div>
         <div className={"feeling  feeling-sadness"}>
-          <button className="sadness">Sadness</button>
+          <button onClick={fetchSadnessIntention} className="sadness">Sadness</button>
         </div>
         <div className={"feeling  feeling-disgust"}>
-          <button className="disgust">Disgust</button>
+          <button onClick={fetchDisgustIntention} className="disgust">Disgust</button>
         </div>
       </div>
     </div>
