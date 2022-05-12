@@ -18,6 +18,7 @@ html {
 /* NAVBAR STYLES */
 
 .navbar {
+  font-size: 1.2em;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -44,7 +45,7 @@ html {
 
 .navbar button {
   font-family: Domine;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 20%;
   border: none;
   background-color: white;
@@ -73,8 +74,14 @@ html {
   text-align: center;
 }
 
+.home-text h3 {
+  font-family: Dancing Script;
+  font-size: 1.6em;
+  margin-bottom: 8%;
+}
+
 .home-text p {
-  margin-bottom: 7%;
+  margin: 8%;
 }
 
 .home-img {
@@ -91,7 +98,8 @@ html {
 .link-home {
   text-decoration: none;
   background-color: #05546a;
-  font-family: Domine;
+  font-family: Dancing Script;
+  font-size: 1.4em;
   color: whitesmoke;
   border: none;
   border-radius: 10px;
@@ -164,7 +172,8 @@ input {
 
 .submit-button {
   background-color: #05546a;
-  font-family: Domine;
+  font-family: Dancing Script;
+  font-size: 1.4em;
   color: whitesmoke;
   border: none;
   border-radius: 10px;
@@ -192,7 +201,8 @@ input {
 .link-login {
   text-decoration: none;
   background-color: #05546a;
-  font-family: Domine;
+  font-family: Dancing Script;
+  font-size: 1.4em;
   color: whitesmoke;
   border: none;
   border-radius: 10px;
@@ -225,9 +235,10 @@ input {
 
 
 .mood-description h2 {
-  font-size: 20px;
+  font-family: Dancing Script;
+  margin: 0;
+  font-size: 2em;
   color: #05546a;
-  margin-bottom: 8px;
 }
 
 /* INTENTION STYLES */

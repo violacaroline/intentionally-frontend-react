@@ -30,9 +30,15 @@ const Login = () => {
       );
       console.log('The Response from login: ', JSON.stringify(response?.data))
       const accessToken = response?.data?.access_token
+      const userId = response?.data?.user_id
+      const saveUser = {
+        userId: response.data.user_id,
+        accessToken: response.data.access_token
+      }
 
 
-      setAuth({ username, password, accessToken })
+      setAuth({ username, password, userId, accessToken })
+      localStorage.setItem('User', JSON.stringify(saveUser))
       setUsername('')
       setPassword('')
       setSuccess(true)

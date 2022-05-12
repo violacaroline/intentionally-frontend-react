@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const logOut = () => {
     console.log('Auth from Navbar logout before', auth)
-    setAuth(null)
+    setAuth()
     
     console.log('Auth from Navbar logout after', auth)
     history('/')
