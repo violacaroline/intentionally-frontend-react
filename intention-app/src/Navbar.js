@@ -1,11 +1,10 @@
 import  { Link, useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
-import AuthContext from './context/ProviderAuth.js'
+import useAuth from './hooks/useAuth.js'
 
 
 const Navbar = () => {  
   const title = 'Intentionally'
-  const { auth, setAuth } = useContext(AuthContext)
+  const { auth, setAuth } = useAuth()
   const history = useNavigate()
 
   const logOut = () => {

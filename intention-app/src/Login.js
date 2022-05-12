@@ -1,11 +1,11 @@
-import { useRef, useState, useEffect, useContext } from 'react'
-import AuthContext from './context/ProviderAuth.js'
+import { useRef, useState, useEffect } from 'react'
 import axios from './api/axios'
 import { Link } from 'react-router-dom'
+import useAuth from './hooks/useAuth'
 
 
 const Login = () => {
-  const { setAuth } = useContext(AuthContext)
+  const { setAuth } = useAuth()
   const errRef = useRef()
 
   const [username, setUsername] = useState('')
