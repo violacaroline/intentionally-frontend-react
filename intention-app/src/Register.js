@@ -16,7 +16,7 @@ const Register = () => {
   const [password, setPassword] = useState('')
   const [validPassword, setValidPassword] = useState(false)
 
-  const [matchPwd, setMatchPwd] = useState('')
+  const [matchPassword, setMatchPwd] = useState('')
   const [validMatch, setValidMatch] = useState(false)
 
   const [firstName, setFirstName] = useState('')
@@ -40,8 +40,8 @@ const Register = () => {
 
   useEffect(() => {
     setValidPassword(passwordRegex.test(password))
-    setValidMatch(password === matchPwd)
-  }, [password, matchPwd])
+    setValidMatch(password === matchPassword)
+  }, [password, matchPassword])
 
   useEffect(() => {
     setValidFirstName(nameRegex.test(firstName))
@@ -63,19 +63,27 @@ const Register = () => {
 
   useEffect(() => {
     setErrMsg('')
-  }, [username, password, matchPwd, firstName, lastName, email, admin])
+  }, [username, password, matchPassword, firstName, lastName, email, admin])
 
 const handleSubmit = async (e) => {
   e.preventDefault()
 
   const validUsername = nameRegex.test(username)
   const validPassword = passwordRegex.test(password)
+  const validEmail = validator.isEmail(email)
   if (!validUsername || !validPassword) {
-    setErrMsg("Invalid Entry")
+    setErrMsg("Invalid Username or Pass Phrase")
+    return
+  } else if (!validEmail) {
+    setErrMsg("Invalid Email")
+    return
+  } else if (!(password === matchPassword)) {
+    setErrMsg("Pass Phrase do not match")
     return
   }
+
   try {
-    const response = await axios.post('/register',
+    const response = await axios.post('http://localhost:8086/api/v1/register',
       JSON.stringify({ username, password, firstName, lastName, email, admin }),
       {
         headers: {
@@ -117,7 +125,7 @@ return (
           <section className="success-register-login">
             <h3 >You are Registered</h3>
             <p>
-              <Link className="link-login" to="/login">Login</Link>
+              <Link className="link-login" to="/login">{'Login '+ String.fromCharCode("0x00002661")}</Link>
             </p>
           </section >
         ) : (
@@ -170,7 +178,7 @@ return (
               type="password"
               id="confirmPassword"
               onChange={(e) => setMatchPwd(e.target.value)}
-              value={matchPwd}
+              value={matchPassword}
               required
               aria-invalid={validMatch ? "false" : "true"}
             />
