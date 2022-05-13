@@ -109,21 +109,11 @@ const PracticeNow = () => {
       <div className="practice-now-img"></div>
       <div className="practice-now-text">
         <h1>{'Tell me, how are you feeling?'}</h1>
-        <div className={"feeling  feeling-joy"}>
-          <button onClick={fetchJoyIntention} className="joy">Joy</button>
-        </div>
-        <div className={"feeling  feeling-fear"}>
-          <button onClick={fetchFearIntention} className="fear">Fear</button>
-        </div>
-        <div className={"feeling  feeling-anger"}>
-          <button onClick={fetchAngerIntention} className="anger">Anger</button>
-        </div>
-        <div className={"feeling  feeling-sadness"}>
-          <button onClick={fetchSadnessIntention} className="sadness">Sadness</button>
-        </div>
-        <div className={"feeling  feeling-disgust"}>
-          <button onClick={fetchDisgustIntention} className="disgust">Disgust</button>
-        </div>
+        <button onClick={fetchJoyIntention} className="feeling">Joy</button>
+        <button onClick={fetchFearIntention} className="feeling">Fear</button>
+        <button onClick={fetchAngerIntention} className="feeling">Anger</button>
+        <button onClick={fetchSadnessIntention} className="feeling">Sadness</button>
+        <button onClick={fetchDisgustIntention} className="feeling">Disgust</button>
       </div>
     </div>
   )
