@@ -167,7 +167,8 @@ input {
   accent-color: #05546a;
   display: inline-block;
   height: 15px;
-  margin-top: 5%;
+  margin-left: 0px;
+  margin-top: 6%;
 }
 
 .submit-button {
@@ -191,7 +192,7 @@ input {
 
 .success-register-login h3 {
   text-align: center;
-  margin-bottom: 30%;
+  margin-bottom: 50%;
 }
 
 .success-register-login p {
