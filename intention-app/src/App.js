@@ -6,6 +6,7 @@ import Login from './Login'
 import Mood from './Mood'
 import Practice from './Practice'
 import PracticeNow from './PracticeNow'
+import ProtectedRoutes from './ProtectedRoutes'
 
 function App () {
   return (
@@ -16,10 +17,12 @@ function App () {
           <Routes>
             <Route path='/' element={ <Home /> } />
             <Route path='/register' element={ <Register /> } />
-            <Route path='/moods' element={ <Mood /> } />
             <Route path='/login' element={ <Login /> } />
+            <Route path='/moods' element={ <Mood /> } />
+            <Route element={<ProtectedRoutes />}>            
             <Route path='/practice' element={ <Practice /> } />
             <Route path='/practice-now' element={ <PracticeNow /> } />
+            </Route>
           </Routes>
         </div>
       </div>
