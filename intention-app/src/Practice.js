@@ -5,7 +5,7 @@ const Practice = () => {
     <div className="practice">
       <div className="practice-links">
         <p>
-          <Link className="link-practice" to="/fix">My Practice</Link>
+          <Link className="link-practice" to="/my-practice">My Practice</Link>
         </p>
         <p>
           <Link className="link-practice" to="/practice-now">Practice Now</Link>

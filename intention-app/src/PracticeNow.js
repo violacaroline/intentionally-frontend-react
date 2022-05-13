@@ -3,7 +3,7 @@ import useAuth from "./hooks/useAuth"
 
 const PracticeNow = () => {
   const { auth } = useAuth()
-  console.log('Accesstoken from Practice now', auth.accessToken)
+  // console.log('Accesstoken from Practice now', auth.accessToken)
   const fetchJoyIntention = async () => {
     try {
       const response = await axios.get('http://localhost:8085/api/v1/intentions', {
@@ -106,10 +106,9 @@ const PracticeNow = () => {
 
   return (
     <div className="practice-now">
-      <div className="feeling-heading">
+      <div className="practice-now-img"></div>
+      <div className="practice-now-text">
         <h1>{'Tell me, how are you feeling?'}</h1>
-      </div>
-      <div className="feelings-buttons">
         <div className={"feeling  feeling-joy"}>
           <button onClick={fetchJoyIntention} className="joy">Joy</button>
         </div>

@@ -6,6 +6,7 @@ import Login from './Login'
 import Mood from './Mood'
 import Practice from './Practice'
 import PracticeNow from './PracticeNow'
+import MyPractice from './MyPractice'
 import ProtectedRoutes from './ProtectedRoutes'
 
 function App () {
@@ -19,9 +20,11 @@ function App () {
             <Route path='/register' element={ <Register /> } />
             <Route path='/login' element={ <Login /> } />
             <Route path='/moods' element={ <Mood /> } />
+
             <Route element={<ProtectedRoutes />}>            
             <Route path='/practice' element={ <Practice /> } />
             <Route path='/practice-now' element={ <PracticeNow /> } />
+            <Route path='/my-practice' element={<MyPractice />} />
             </Route>
           </Routes>
         </div>

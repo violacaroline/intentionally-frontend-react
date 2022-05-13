@@ -7,7 +7,8 @@ html {
 .heading {
   font-family: Dancing Script;
   font-size: 3rem;
-  color: #05546a;
+  color: #044152;
+  letter-spacing: 1px;
 }
 
 .content {
@@ -34,6 +35,7 @@ html {
 
 .navbar a {
   margin-left: 16px;
+  letter-spacing: 1px;
   text-decoration: none;
   color: #05546a;
   padding: 6px;
@@ -76,12 +78,12 @@ html {
 
 .home-text h3 {
   font-family: Dancing Script;
-  font-size: 1.6em;
+  font-size: 2em;
   margin-bottom: 8%;
 }
 
 .home-text p {
-  margin: 8%;
+  margin: 7%;
 }
 
 .home-img {
@@ -242,33 +244,6 @@ input {
   color: #05546a;
 }
 
-/* INTENTION STYLES */
-
-.intention {
-  background-image: url('../public/images/login-ocean.jpg');
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.intention-description {
-  background-color: white;
-  width: 300px;
-  height: 250px;
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-}
-
-
-.intention-description h2 {
-  font-size: 20px;
-  color: #05546a;
-  margin-bottom: 8px;
-}
-
 /* PRACTICE PAGE STYLES */
 
 .practice {
@@ -303,96 +278,73 @@ input {
   text-align: center;
   background-color: white;
   font-family: Domine;
+  letter-spacing: 5px;
   color: #05546a;
   border: none;
   border-radius: 30px;
   padding: 20px 40px 20px 40px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 5px 15px;
 }
 
 .link-practice:hover {
-  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 }
 
 /* PRACTICE NOW PAGE STYLES */
 
 .practice-now {
+  min-width: 800px;
+  margin: 0 50px 0 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.practice-now-img {
+  display: inline-block;
+  min-width: 50%;
+  min-height: 500px;
   background-image: url('../public/images/login-ocean.jpg');
-  margin: 0 auto;
-  min-width: 600px;
-  width: 50%;
-  height: 100vh;
-  padding: 20px;
-  display: flexbox;
+
 }
 
-.feeling-heading {
-  color: white;
+.practice-now-text {
+  display: inline-block;
+  text-align: center;
+  min-width: 50%;
+  min-height: 500px;
+  margin: 0 50px;
+}
+
+.practice-now-text h1 {
+  margin: 0;
   font-family: Dancing Script;
+  letter-spacing: 3px;
   white-space: nowrap;
-  width: 60%;
-  margin: 0 auto;
-  padding: 2%;
-}
-
-.feeling {
-  width: fit-content;
-}
-
-.feelings-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
 }
 
 .feeling button {
-  display: block;
-  border: none;
-  font-family: Dancing Script;
-  color: #05546a;
-  font-size: 2em;
+  font-family: Domine;
+  font-size: 1.4em;
+  letter-spacing: 5px;
+  min-width: 100%;
+  margin: 5%;
+  padding: 5%;
   background-color: white;
-  text-align: center;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
-  padding: 3%;
+  border: none;
+  border-top: 1px solid #f2f2f2;
+  border-bottom: 1px solid #f2f2f2;
+  box-shadow: inset rgba(0, 0, 0, 0.20) 0px 5px 10px;
 }
 
 .feeling button:hover {
-  color: white;
-  background-image:  url('../public/images/login-ocean.jpg');
-  background-position: left;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   cursor: pointer;
 }
 
-.feeling-joy {
-  margin: 0 auto;
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
+/* MY PRACTICE PAGE STYLES */
 
-.feeling-fear {
-  margin: 0 auto;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-}
-
-.feeling-anger {
-  margin: 0 auto;
-  grid-column: 3 / 4;
-  grid-row: 1 / 2;
-}
-
-.feeling-sadness {
-  margin: 0 auto;
-  grid-column: 1 / 2;
-  grid-row: 3 / 3;
-}
-
-.feeling-disgust {
-  margin: 0 auto;
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
+.my-practice {
+  font-family: Domine;
+  margin-left: 70px;
+  letter-spacing: 2px;
 }
