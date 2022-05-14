@@ -8,6 +8,7 @@ import Practice from './Practice'
 import PracticeNow from './PracticeNow'
 import MyPractice from './MyPractice'
 import ProtectedRoutes from './ProtectedRoutes'
+import Intention from './Intention'
 
 function App () {
   return (
@@ -20,6 +21,7 @@ function App () {
             <Route path='/register' element={ <Register /> } />
             <Route path='/login' element={ <Login /> } />
             <Route path='/moods' element={ <Mood /> } />
+            <Route path='/intention' element={ <Intention /> } />
 
             <Route element={<ProtectedRoutes />}>            
             <Route path='/practice' element={ <Practice /> } />
