@@ -186,6 +186,7 @@ input {
 
 .submit-button:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  cursor: pointer;
 }
 
 .success-register-login {
@@ -291,6 +292,23 @@ input {
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 }
 
+/*  REMOVE IF BUTTON WONT BE USED */
+
+/*
+.practice button {
+  background-color: white;
+  color: #05546a;
+  white-space: nowrap;
+  font-size: 1.2em;
+  font-family: Domine;
+  border: none;
+}
+
+.practice button:hover {
+  color: #3a94ad;
+  cursor: pointer;
+} */
+
 /* PRACTICE NOW PAGE STYLES */
 
 .practice-now {
@@ -366,7 +384,7 @@ input {
   width: 50%;
   height: 100vh;
   border: 1px solid #f2f2f2;
-  box-shadow: rgba(0, 0, 0, 0.30) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 15px;
 }
 
 .intention-presentation h3 {
@@ -377,8 +395,20 @@ input {
 }
 
 .intention-presentation p {
-  margin: 20% ;
+  margin: 20%;
   letter-spacing: 3px;
   line-height: 2;
 }
 
+.intention button {
+  background-color: white;
+  color: #05546a;
+  font-size: 1.2em;
+  font-family: Domine;
+  border: none;
+}
+
+.intention button:hover {
+  color: #3a94ad;
+  cursor: pointer;
+}

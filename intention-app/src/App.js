@@ -21,11 +21,11 @@ function App () {
             <Route path='/register' element={ <Register /> } />
             <Route path='/login' element={ <Login /> } />
             <Route path='/moods' element={ <Mood /> } />
-            <Route path='/intention' element={ <Intention /> } />
 
             <Route element={<ProtectedRoutes />}>            
             <Route path='/practice' element={ <Practice /> } />
             <Route path='/practice-now' element={ <PracticeNow /> } />
+            <Route path='/intention' element={ <Intention /> } />
             <Route path='/my-practice' element={<MyPractice />} />
             </Route>
           </Routes>
