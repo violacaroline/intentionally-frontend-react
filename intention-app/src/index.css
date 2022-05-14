@@ -368,6 +368,21 @@ input {
   letter-spacing: 2px;
 }
 
+.my-practice button {
+  background-color: white;
+  color: #05546a;
+  font-size: 1.2em;
+  font-family: Domine;
+  border: none;
+}
+
+.my-practice button:hover {
+  color: #3a94ad;
+  cursor: pointer;
+}
+
+
+
 /* INTENTION PAGE STYLES */
 
 .intention {
