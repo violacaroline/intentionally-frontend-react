@@ -9,6 +9,7 @@ import PracticeNow from './PracticeNow'
 import MyPractice from './MyPractice'
 import ProtectedRoutes from './ProtectedRoutes'
 
+
 function App () {
   return (
     <Router>
@@ -16,15 +17,15 @@ function App () {
         <Navbar />
         <div className="content">
           <Routes>
-            <Route path='/' element={ <Home /> } />
-            <Route path='/register' element={ <Register /> } />
-            <Route path='/login' element={ <Login /> } />
-            <Route path='/moods' element={ <Mood /> } />
+            <Route path='/' element={<Home />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/moods' element={<Mood />} />
 
-            <Route element={<ProtectedRoutes />}>            
-            <Route path='/practice' element={ <Practice /> } />
-            <Route path='/practice-now' element={ <PracticeNow /> } />
-            <Route path='/my-practice' element={<MyPractice />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path='/practice' element={<Practice />} />
+              <Route path='/practice-now' element={<PracticeNow />} />
+              <Route path='/my-practice' element={<MyPractice />} />
             </Route>
           </Routes>
         </div>

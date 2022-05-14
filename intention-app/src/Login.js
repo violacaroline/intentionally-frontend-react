@@ -46,7 +46,7 @@ const Login = () => {
       if (!err?.response) {
         setErrMsg('No Server Response')
       } else if (err.response?.status === 401) {
-        setErrMsg('Unauthorized, invalid credentials')
+        setErrMsg('Invalid credentials')
       } else {
         setErrMsg('Login Failed')
       }
