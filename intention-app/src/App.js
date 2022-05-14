@@ -9,6 +9,7 @@ import PracticeNow from './PracticeNow'
 import MyPractice from './MyPractice'
 import ProtectedRoutes from './ProtectedRoutes'
 import Intention from './Intention'
+import NotFound from './NotFound'
 
 
 function App () {
@@ -29,6 +30,8 @@ function App () {
             <Route path='/intention' element={ <Intention /> } />
             <Route path='/my-practice' element={<MyPractice />} />
             </Route>
+
+            <Route path='*' element={<NotFound />}/>
           </Routes>
         </div>
       </div>

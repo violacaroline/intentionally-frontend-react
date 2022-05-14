@@ -427,3 +427,11 @@ input {
   color: #3a94ad;
   cursor: pointer;
 }
+
+/* NOT FOUND PAGE STYLES */
+
+.not-found {
+  font-family: Domine;
+  margin-left: 70px;
+  letter-spacing: 2px;
+}
