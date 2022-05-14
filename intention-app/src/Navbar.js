@@ -5,14 +5,14 @@ import useAuth from './hooks/useAuth.js'
 const Navbar = () => {  
   const title = 'Intentionally'
   const { auth, setAuth } = useAuth()
-  const history = useNavigate()
+  const navigate = useNavigate()
 
   const logOut = () => {
     console.log('Auth from Navbar logout before', auth)
     setAuth()
     
     console.log('Auth from Navbar logout after', auth)
-    history('/')
+    navigate('/')
     console.log('Auth from Navbar logout after redirect', auth)
    }
 

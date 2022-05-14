@@ -1,9 +1,13 @@
+import { useState } from "react"
 import axios from "./api/axios"
 import useAuth from "./hooks/useAuth"
+import Intention from "./Intention"
 
 const PracticeNow = () => {
   const { auth } = useAuth()
-  // console.log('Accesstoken from Practice now', auth.accessToken)
+  const [intention, setIntention] = useState('')
+  const [success, setSuccess] = useState(false)
+
   const fetchJoyIntention = async () => {
     try {
       const response = await axios.get('http://localhost:8085/api/v1/intentions', {
@@ -19,6 +23,8 @@ const PracticeNow = () => {
 
       const joyIntention = joyIntentions[Math.floor(Math.random() * joyIntentions.length)]
       console.log(joyIntention)
+      setIntention(joyIntention)
+      setSuccess(true)
     } catch (error) {
       console.log(error)
     }
@@ -37,8 +43,10 @@ const PracticeNow = () => {
 
       const fearIntentions = intentions.filter(intention => intention.mood === 'fear')
 
-      const fearIntentionData = fearIntentions[Math.floor(Math.random() * fearIntentions.length)]
-      console.log(fearIntentionData)
+      const fearIntention = fearIntentions[Math.floor(Math.random() * fearIntentions.length)]
+      console.log(fearIntention)
+      setIntention(fearIntention)
+      setSuccess(true)
     } catch (error) {
       console.log(error)
     }
@@ -59,6 +67,8 @@ const PracticeNow = () => {
 
       const angerIntention = angerIntentions[Math.floor(Math.random() * angerIntentions.length)]
       console.log(angerIntention)
+      setIntention(angerIntention)
+      setSuccess(true)
     } catch (error) {
       console.log(error)
     }
@@ -79,6 +89,8 @@ const PracticeNow = () => {
 
       const sadnessIntention = sadnessIntentions[Math.floor(Math.random() * sadnessIntentions.length)]
       console.log(sadnessIntention)
+      setIntention(sadnessIntention)
+      setSuccess(true)
     } catch (error) {
       console.log(error)
     }
@@ -99,6 +111,8 @@ const PracticeNow = () => {
 
       const disgustIntention = disgustIntentions[Math.floor(Math.random() * disgustIntentions.length)]
       console.log(disgustIntention)
+      setIntention(disgustIntention)
+      setSuccess(true)
     } catch (error) {
       console.log(error)
     }
@@ -106,25 +120,21 @@ const PracticeNow = () => {
 
   return (
     <div className="practice-now">
-      <div className="practice-now-img"></div>
-      <div className="practice-now-text">
-        <h1>{'Tell me, how are you feeling?'}</h1>
-        <div className={"feeling  feeling-joy"}>
-          <button onClick={fetchJoyIntention} className="joy">Joy</button>
-        </div>
-        <div className={"feeling  feeling-fear"}>
-          <button onClick={fetchFearIntention} className="fear">Fear</button>
-        </div>
-        <div className={"feeling  feeling-anger"}>
-          <button onClick={fetchAngerIntention} className="anger">Anger</button>
-        </div>
-        <div className={"feeling  feeling-sadness"}>
-          <button onClick={fetchSadnessIntention} className="sadness">Sadness</button>
-        </div>
-        <div className={"feeling  feeling-disgust"}>
-          <button onClick={fetchDisgustIntention} className="disgust">Disgust</button>
-        </div>
-      </div>
+      {success ?
+        <Intention intention={intention} />
+        :
+        <>
+          <div className="practice-now-img"></div>
+          <div className="practice-now-text">
+            <h1>{'Tell me, how are you feeling?'}</h1>
+            <button onClick={fetchJoyIntention} className="feeling">Joy</button>
+            <button onClick={fetchFearIntention} className="feeling">Fear</button>
+            <button onClick={fetchAngerIntention} className="feeling">Anger</button>
+            <button onClick={fetchSadnessIntention} className="feeling">Sadness</button>
+            <button onClick={fetchDisgustIntention} className="feeling">Disgust</button>
+          </div>
+        </>
+      }
     </div>
   )
 }
