@@ -1,12 +1,13 @@
 import { useRef, useState, useEffect } from 'react'
 import axios from './api/axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useAuth from './hooks/useAuth'
 
 
 const Login = () => {
   const { setAuth } = useAuth()
   const errRef = useRef()
+  const navigate = useNavigate()
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -46,7 +47,7 @@ const Login = () => {
       if (!err?.response) {
         setErrMsg('No Server Response')
       } else if (err.response?.status === 401) {
-        setErrMsg('Invalid credentials')
+        setErrMsg('Invalid Credentials')
       } else {
         setErrMsg('Login Failed')
       }
@@ -58,13 +59,13 @@ const Login = () => {
     <div className="login">
       <form className="input-form" data-testid='form' onSubmit={ handleSubmit }>
         {
-          success ? (
-            <section className="success-register-login">
-              <h3 >You are Logged In</h3>
-              <p>
-                <Link className="link-login" to="/practice">{'Practice  ' + String.fromCharCode("0x00002661")} </Link>
-              </p>
-            </section >
+          success ? ( navigate('/practice')
+            // <section className="success-register-login">
+            //   <h3 >You are Logged In</h3>
+            //   <p>
+            //     <Link className="link-login" to="/practice">{'Practice  ' + String.fromCharCode("0x00002661")} </Link>
+            //   </p>
+            // </section >
           ) : (
             <>
               <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}  style={{ color: "red", size: "10px" }} aria-live="assertive">{errMsg}</p>

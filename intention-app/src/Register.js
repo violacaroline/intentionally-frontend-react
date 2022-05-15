@@ -92,8 +92,7 @@ const handleSubmit = async (e) => {
         // withCredentials: true  // <-- THIS WILL NEED TO BE LOOKED INTO DUE TO CORS
       }
     );
-    console.log(response?.data);
-    console.log(JSON.stringify(response))
+    console.log(JSON.stringify(response)) // I DONT NEED TO SAVE THIS IN A VARIABLE?
     setSuccess(true)
     //clear state and controlled inputs
     //need value attrib on inputs for this
