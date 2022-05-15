@@ -37,7 +37,7 @@ const PracticeNow = () => {
         <>
           <div className="practice-now-img"></div>
           <div className="practice-now-text">
-            <h1>{'Tell me, how are you feeling?'}</h1>
+            <h2>{'Tell me, how are you feeling?'}</h2>
             <button onClick={() => {fetchIntention('joy')}}className="feeling">Joy</button>
             <button onClick={() => {fetchIntention('fear')}} className="feeling">Fear</button>
             <button onClick={() => {fetchIntention('anger')}} className="feeling">Anger</button>
