@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
 import axios from './api/axios'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import useAuth from './hooks/useAuth'
 
 
@@ -60,12 +60,6 @@ const Login = () => {
       <form className="input-form" data-testid='form' onSubmit={ handleSubmit }>
         {
           success ? ( navigate('/practice')
-            // <section className="success-register-login">
-            //   <h3 >You are Logged In</h3>
-            //   <p>
-            //     <Link className="link-login" to="/practice">{'Practice  ' + String.fromCharCode("0x00002661")} </Link>
-            //   </p>
-            // </section >
           ) : (
             <>
               <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"}  style={{ color: "red", size: "10px" }} aria-live="assertive">{errMsg}</p>
