@@ -296,23 +296,6 @@ input {
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 }
 
-/*  REMOVE IF BUTTON WONT BE USED */
-
-/*
-.practice button {
-  background-color: white;
-  color: #05546a;
-  white-space: nowrap;
-  font-size: 1.2em;
-  font-family: Domine;
-  border: none;
-}
-
-.practice button:hover {
-  color: #3a94ad;
-  cursor: pointer;
-} */
-
 /* PRACTICE NOW PAGE STYLES */
 
 .practice-now {
