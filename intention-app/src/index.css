@@ -62,6 +62,10 @@ html {
   cursor: pointer;
 }
 
+.active {
+  border-bottom: 1px solid #05546a;
+}
+
 /* HOME PAGE STYLES */
 
 .home {
