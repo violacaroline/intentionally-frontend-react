@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const logOut = () => {
     setAuth()
+    localStorage.clear()
     navigate('/')
   }
 
