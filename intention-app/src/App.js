@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { useRef } from 'react'
 import Navbar from './Navbar'
 import Home from './Home'
 import Register from './Register'
@@ -10,9 +11,19 @@ import MyPractice from './MyPractice'
 import ProtectedRoutes from './ProtectedRoutes'
 import Intention from './Intention'
 import NotFound from './NotFound'
+import useAuth from './hooks/useAuth'
 
 
 function App () {
+  const { setAuth } = useAuth()
+
+  useRef(() => {
+    const loggedInUser = localStorage.getItem("user")
+    console.log('Logged in user from app', loggedInUser)
+    if (loggedInUser) {
+      setAuth(JSON.parse(loggedInUser))
+    }
+  }, [])
   return (
     <Router>
       <div className="App">

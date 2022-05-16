@@ -33,12 +33,13 @@ const Login = () => {
       const accessToken = response?.data?.access_token
       const userId = response?.data?.user_id
       const saveUser = {
+        username: response.data.username,
         userId: response.data.user_id,
         accessToken: response.data.access_token
       }
 
 
-      setAuth({ username, password, userId, accessToken })
+      setAuth({ username, userId, accessToken })
       localStorage.setItem('User', JSON.stringify(saveUser))
       setUsername('')
       setPassword('')
