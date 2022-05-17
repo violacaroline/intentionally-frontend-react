@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import axios from './api/axios'
+import axios from 'axios'
 import validator from 'validator'
 import { Link } from 'react-router-dom'
 

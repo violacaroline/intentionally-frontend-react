@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import axios from './api/axios'
+import axios from 'axios'
 import useAuth from './hooks/useAuth'
 import Intention from './Intention'
 
