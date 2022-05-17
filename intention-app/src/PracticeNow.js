@@ -50,4 +50,4 @@ const PracticeNow = () => {
   )
 }
 
-export default PracticeNow;
+export default PracticeNow

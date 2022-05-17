@@ -4,7 +4,6 @@ const AuthContext = createContext({})
 
 export const ProviderAuth = ({ children }) => {
   const [auth, setAuth] = useState(undefined)
-  console.log('From context', auth)
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
@@ -13,4 +12,4 @@ export const ProviderAuth = ({ children }) => {
   )
 }
 
-export default AuthContext;
+export default AuthContext

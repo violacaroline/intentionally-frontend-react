@@ -91,7 +91,7 @@ const handleSubmit = async (e) => {
         }
         // withCredentials: true  // <-- THIS WILL NEED TO BE LOOKED INTO DUE TO CORS
       }
-    );
+    )
     console.log(JSON.stringify(response)) // I DONT NEED TO SAVE THIS IN A VARIABLE?
     setSuccess(true)
     //clear state and controlled inputs
@@ -207,4 +207,4 @@ return (
 )
 }
 
-export default Register;
+export default Register

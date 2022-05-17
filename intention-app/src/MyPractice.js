@@ -18,4 +18,4 @@ const MyPractice = () => {
   )
 }
  
-export default MyPractice;
+export default MyPractice

@@ -23,4 +23,4 @@ const Mood = () => {
    )
 }
  
-export default Mood;
+export default Mood

@@ -28,7 +28,7 @@ const Login = () => {
           headers: { 'Content-Type': 'application/json' },
           // withCredentials: true // LOOK INTO THIS
         }
-      );
+      )
       console.log('The Response from login: ', JSON.stringify(response?.data))
       
       const userId = response.data.user_id
