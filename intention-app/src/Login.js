@@ -36,7 +36,8 @@ const Login = () => {
       
       const persistUser = {
         username: response.data.username,
-        userId: response.data.user_id
+        userId: response.data.user_id,
+        accessToken: response.data.access_token
       }
 
       localStorage.setItem('user', JSON.stringify(persistUser))

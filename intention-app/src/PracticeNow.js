@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import axios from 'axios'
-import useAuth from './hooks/useAuth'
 import Intention from './Intention'
 
 const PracticeNow = () => {
-  const { auth } = useAuth()
+  const authenticatedUser = JSON.parse(localStorage.getItem("user"))
   const [intention, setIntention] = useState('')
   const [success, setSuccess] = useState(false)
 
@@ -13,7 +12,7 @@ const PracticeNow = () => {
       const response = await axios.get('http://localhost:8085/api/v1/intentions', {
         headers: {
           'Content-Type': 'application/json',
-          authorization: auth.accessToken
+          authorization: authenticatedUser.accessToken
         }
       })
 

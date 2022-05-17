@@ -94,8 +94,7 @@ const handleSubmit = async (e) => {
     )
     console.log(JSON.stringify(response)) // I DONT NEED TO SAVE THIS IN A VARIABLE?
     setSuccess(true)
-    //clear state and controlled inputs
-    //need value attrib on inputs for this
+
     setUsername('')
     setPassword('')
     setMatchPwd('')

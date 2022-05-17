@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
-import useAuth from './hooks/useAuth'
 
 const Home = () => {
-  const { auth } = useAuth()
+  const authenticatedUser = localStorage.getItem("user")
   const IMG = (imgName) => {
     return require(`../public/images/${imgName}`)
   }
@@ -13,7 +12,7 @@ const Home = () => {
         <h3 className="space-around">There you are!</h3> 
         <p className="space-around">Have you meditated yet?</p>
         <p className="space-around">Intentionally is here to help you get started!</p>
-        {auth ? <p></p> :
+        {authenticatedUser ? <p></p> :
           <p>
             <Link className="link-home" to="/register">Register</Link>
           </p>
