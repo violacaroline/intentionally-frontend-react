@@ -10,8 +10,7 @@ import MyPractice from './MyPractice'
 import ProtectedRoutes from './ProtectedRoutes'
 import Intention from './Intention'
 import NotFound from './NotFound'
-import { useEffect } from 'react'
-import useAuth from './hooks/useAuth'
+
 
 
 function App () {
