@@ -4,8 +4,9 @@ import useAuth from './hooks/useAuth.js'
 
 const Navbar = () => {
   const title = 'Intentionally'
-  const { auth, setAuth } = useAuth()
+  const { setAuth } = useAuth()
   const navigate = useNavigate()
+  const authenticatedUser = localStorage.getItem("user")
 
   const logOut = () => {
     setAuth()
@@ -19,8 +20,8 @@ const Navbar = () => {
       <div className="links">
         <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink>
         <NavLink to="/moods" className={({ isActive }) => (isActive ? "active" : "")}>Our moods</NavLink>
-        {auth && <NavLink to="/practice" className={({ isActive }) => (isActive ? "active" : "")}>Practice</NavLink>}
-        {auth ?
+        {authenticatedUser && <NavLink to="/practice" className={({ isActive }) => (isActive ? "active" : "")}>Practice</NavLink>}
+        {authenticatedUser ?
           <button onClick={logOut}>Logout</button>
           : <> <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : "")}>Register</NavLink>
             <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>Login</NavLink> </>}
