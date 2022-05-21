@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import validator from 'validator'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const nameRegex = /^[A-Za-z][A-Za-z0-9_]{2,256}$/
 const passwordRegex = /^(?=.*[A-Z])(?=.*[\W])(?=.*[0-9])(?=.*[a-z]).{10,256}$/
 
 const Register = () => {
+  const navigate = useNavigate()
   const userRef = useRef()
   const errorRef = useRef()
 
@@ -130,13 +132,13 @@ const Register = () => {
     <section className="register">
       <form className="input-form-register" onSubmit={handleSubmit}>
         {
-          success ? (
-            <section className="success-register-login">
-              <h3 >You are Registered</h3>
-              <p>
-                <Link className="link-login" to="/login">{'Login ' + String.fromCharCode("0x00002661")}</Link>
-              </p>
-            </section >
+          success ? (  navigate('/login')
+            // <section className="success-register-login">
+            //   <h3 >You are Registered</h3>
+            //   <p>
+            //     <Link className="link-login" to="/login">{'Login ' + String.fromCharCode("0x00002661")}</Link>
+            //   </p>
+            // </section >
           ) : (
             <>
               <p ref={errorRef} style={{ color: "red", size: "10px" }} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
@@ -201,7 +203,7 @@ const Register = () => {
                 required
                 aria-invalid={validEmail ? "false" : "true"}
               />
-              <label htmlFor="admin">Are you an admin?</label>
+              <label htmlFor="admin">Are you an admin?
               <input
                 type="checkbox"
                 className="register-checkbox"
@@ -209,6 +211,8 @@ const Register = () => {
                 onChange={(e) => setAdmin(e.target.checked)}
                 value={admin}
               />
+              </label>
+              
               {admin ?
                 <>
                   <label htmlFor="admin-password">Admin Pass Phrase</label>

@@ -131,16 +131,13 @@ html {
   height: 100vh;
   background-image: url('../public/images/ocean.jpg');
   background-repeat: no-repeat;
-  padding-top: 30px;
-  padding-bottom: 30px;
   position: relative;
   overflow: auto;
 }
 
 .input-form-register {
   min-width: 25%;
-  max-height: 90%;
-  min-height: fit-content;
+  height: min-content;
   position: absolute;
   vertical-align: middle;
   background-color: white;
@@ -168,7 +165,7 @@ html {
 }
 
 label {
-  display: inline-block;
+  display: block;
   margin-bottom: 2%;
 }
 
