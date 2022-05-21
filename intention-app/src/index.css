@@ -137,6 +137,21 @@ html {
   overflow: auto;
 }
 
+.input-form-register {
+  min-width: 25%;
+  max-height: 90%;
+  min-height: fit-content;
+  position: absolute;
+  vertical-align: middle;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  white-space: nowrap;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .input-form {
   min-width: 25%;
   max-height: 90%;
