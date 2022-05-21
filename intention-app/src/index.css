@@ -354,7 +354,7 @@ input {
 }
 
 .feeling:hover {
-  border-top: 1px solid #f2f2f2;
+  border-bottom: 2px solid #05546a;
   cursor: pointer;
 }
 
@@ -366,7 +366,26 @@ input {
   letter-spacing: 2px;
 }
 
+.my-practice-text {
+  width: 50%;
+  text-align: center;
+}
+
+.my-practice-text h2 {
+  font-family: Domine;
+  font-weight: 100;
+  letter-spacing: 3px;
+}
+
+.my-practice-text h3 {
+  font-family: Dancing Script;
+  font-size: 2em;
+  font-weight: 100;
+  letter-spacing: 3px;
+}
+
 .my-practice button {
+  display: block;
   background-color: white;
   color: #05546a;
   font-size: 1.2em;
