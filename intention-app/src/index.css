@@ -445,6 +445,17 @@ input {
   cursor: pointer;
 }
 
+/* TOAST STYLES */
+.toast-body {
+  text-align: center;
+  font-family: Domine;
+  letter-spacing: 3px;
+  color: #05546a;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
 /* NOT FOUND PAGE STYLES */
 
 .not-found {
