@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Intention from './Intention'
+import { format } from 'date-fns'
 
 const PracticeNow = () => {
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
@@ -15,6 +16,18 @@ const PracticeNow = () => {
           authorization: authenticatedUser.accessToken
         }
       })
+
+      await axios.post('http://localhost:8087/api/v1/moods', {
+        headers: {
+          authorization: authenticatedUser.accessToken
+        },
+        mood: mood,
+        date: format(new Date(), 'eeee, yyyy-MM-dd').toString(),
+        userId: authenticatedUser.userId
+
+      })
+
+      console.log('The date ', `${format(new Date(), 'eeee, yyyy-MM-dd').toString()}`)
 
       const intentions = Array.from(response.data)
 
@@ -37,11 +50,11 @@ const PracticeNow = () => {
           <div className="practice-now-img"></div>
           <div className="practice-now-text">
             <h2>{'Tell me, how are you feeling?'}</h2>
-            <button onClick={() => {fetchIntention('joy')}}className="feeling">Joy</button>
-            <button onClick={() => {fetchIntention('fear')}} className="feeling">Fear</button>
-            <button onClick={() => {fetchIntention('anger')}} className="feeling">Anger</button>
-            <button onClick={() => {fetchIntention('sadness')}} className="feeling">Sadness</button>
-            <button onClick={() => {fetchIntention('disgust')}} className="feeling">Disgust</button>
+            <button onClick={() => { fetchIntention('joy') }} className="feeling">Joy</button>
+            <button onClick={() => { fetchIntention('fear') }} className="feeling">Fear</button>
+            <button onClick={() => { fetchIntention('anger') }} className="feeling">Anger</button>
+            <button onClick={() => { fetchIntention('sadness') }} className="feeling">Sadness</button>
+            <button onClick={() => { fetchIntention('disgust') }} className="feeling">Disgust</button>
           </div>
         </>
       }
