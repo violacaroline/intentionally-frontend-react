@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import validator from 'validator'
 import { toast } from 'react-toastify'
+import Tooltip from '@mui/material/Tooltip'
 // import { Link } from 'react-router-dom'
 
 const nameRegex = /^[A-Za-z][A-Za-z0-9_]{2,256}$/
@@ -17,6 +18,9 @@ const Register = () => {
     position: toast.POSITION.TOP_CENTER,
     hideProgressBar: true
   })
+
+  const usernameTooltip = 'Username can only consist of alphanumeric charcters and underscore.'
+  const passPhraseToolTip = 'Pass Phrase should be minimum 10 characters long. Include numbers, capital/lowercase letters, as well as special characters. Pass Phrase is case sensitive.'
 
 
   const [username, setUsername] = useState('')
@@ -66,7 +70,6 @@ const Register = () => {
     setValidEmail(validator.isEmail(email))
   }, [email])
 
-  // VALIDATE ADMIN?
   useEffect(() => {
     setAdminPassPhrase(adminPassPhrase)
   }, [adminPassPhrase])
@@ -171,6 +174,7 @@ const Register = () => {
                 aria-invalid={validLastName ? "false" : "true"}
               />
               <label htmlFor="username">Username</label>
+              <Tooltip placement="top-start" title={usernameTooltip}>
               <input
                 type="text"
                 id="username"
@@ -182,7 +186,9 @@ const Register = () => {
                 aria-invalid={validName ? "false" : "true"}
                 aria-describedby="uidnote"
               />
+              </Tooltip>
               <label htmlFor="password">Pass Phrase</label>
+              <Tooltip placement="top-start" title={passPhraseToolTip}>
               <input
                 type="password"
                 id="password"
@@ -191,6 +197,7 @@ const Register = () => {
                 required
                 aria-invalid={validPassword ? "false" : "true"}
               />
+              </Tooltip>
               <label htmlFor="confirmPassword">Confirm Pass Phrase</label>
               <input
                 type="password"
