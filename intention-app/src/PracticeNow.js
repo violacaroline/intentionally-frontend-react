@@ -24,10 +24,7 @@ const PracticeNow = () => {
         mood: mood,
         date: format(new Date(), 'eeee, yyyy-MM-dd').toString(),
         userId: authenticatedUser.userId
-
       })
-
-      console.log('The date ', `${format(new Date(), 'eeee, yyyy-MM-dd').toString()}`)
 
       const intentions = Array.from(response.data)
 

@@ -384,6 +384,10 @@ input {
   letter-spacing: 3px;
 }
 
+.user-mood h4 {
+  text-align: left;
+}
+
 .my-practice button {
   display: block;
   background-color: white;
