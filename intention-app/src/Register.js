@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import validator from 'validator'
+import { toast } from 'react-toastify'
 // import { Link } from 'react-router-dom'
 
 const nameRegex = /^[A-Za-z][A-Za-z0-9_]{2,256}$/
@@ -11,6 +12,11 @@ const Register = () => {
   const navigate = useNavigate()
   const userRef = useRef()
   const errorRef = useRef()
+
+  const notifyRegistered = () => toast('You are registered!', {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar: true
+  })
 
 
   const [username, setUsername] = useState('')
@@ -106,6 +112,7 @@ const Register = () => {
         }
       )
       setSuccess(true)
+      notifyRegistered()
 
       setUsername('')
       setPassword('')
@@ -132,7 +139,7 @@ const Register = () => {
     <section className="register">
       <form className="input-form-register" onSubmit={handleSubmit}>
         {
-          success ? (  navigate('/login')
+          success ? (navigate('/login')
             // <section className="success-register-login">
             //   <h3 >You are Registered</h3>
             //   <p>
@@ -204,15 +211,15 @@ const Register = () => {
                 aria-invalid={validEmail ? "false" : "true"}
               />
               <label htmlFor="admin">Are you an admin?
-              <input
-                type="checkbox"
-                className="register-checkbox"
-                id="admin"
-                onChange={(e) => setAdmin(e.target.checked)}
-                value={admin}
-              />
+                <input
+                  type="checkbox"
+                  className="register-checkbox"
+                  id="admin"
+                  onChange={(e) => setAdmin(e.target.checked)}
+                  value={admin}
+                />
               </label>
-              
+
               {admin ?
                 <>
                   <label htmlFor="admin-password">Admin Pass Phrase</label>
