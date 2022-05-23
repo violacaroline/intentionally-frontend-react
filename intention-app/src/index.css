@@ -75,7 +75,8 @@ html {
 }
 
 .home-text {
-  padding: 20px;
+  padding: 10px;
+  margin: 30px;
   min-width: 50%;
   text-align: center;
 }
@@ -99,7 +100,9 @@ html {
 
 .img-home {
   max-width: 85%;
-  min-height: 120%;
+  min-height: 90%;
+  padding: 10px;
+  margin: 10px;
 }
 
 .link-home {
@@ -382,6 +385,10 @@ input {
   font-size: 2em;
   font-weight: 100;
   letter-spacing: 3px;
+}
+
+.user-mood h4 {
+  text-align: left;
 }
 
 .my-practice button {
