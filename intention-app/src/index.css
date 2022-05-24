@@ -364,15 +364,17 @@ input {
 /* MY PRACTICE PAGE STYLES */
 
 .my-practice {
+  display: flex;
   font-family: Domine;
-  margin-left: 70px;
   letter-spacing: 2px;
 }
 
 .my-practice-text {
-  min-width: 542px;
+  display: inline-block;
+  min-width: 546px;
   width: 50%;
   text-align: center;
+  margin-top: 30px;
 }
 
 .my-practice-text h2 {
@@ -383,17 +385,39 @@ input {
 
 .my-practice-text h3 {
   font-family: Dancing Script;
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: 100;
   letter-spacing: 3px;
 }
 
-.user-mood h4 {
-  text-align: left;
+.my-practice-image {
+  display: inline-block;
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+  width: 40%;
+}
+
+.img-my-practice {
+  display: block;
+  border-radius: 50%;
+  margin: 20% auto;
+  width: 200px;
+  height: 200px;
+}
+
+.my-practice-image button {
+  margin: 10px;
+}
+
+.my-practice-go-back {
+  display: block;
+  max-height: fit-content;
+  white-space: nowrap;
+  margin-bottom: 20px;
 }
 
 .my-practice button {
-  display: block;
   background-color: white;
   color: #05546a;
   font-size: 1.2em;
@@ -406,15 +430,14 @@ input {
   cursor: pointer;
 }
 
-/* CHART COMPONENT */
+/* CHART STYLES */
 
 .chart {
-  min-width: 400px;
+  display: flex;
+  justify-items: center;
+  min-width: 80%;
 }
 
-.pie-chart {
-  width:100%;
-}
 
 /* INTENTION PAGE STYLES */
 

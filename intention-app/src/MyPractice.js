@@ -6,6 +6,9 @@ import Chart from './Chart'
 
 
 const MyPractice = () => {
+  const IMG = (imgName) => {
+    return require(`../public/images/${imgName}`)
+  }
   const [moods, setMoods] = useState([])
   const [joy, setJoy] = useState([])
   const [fear, setFear] = useState([])
@@ -89,7 +92,9 @@ const MyPractice = () => {
 
   return (
     <div className="my-practice">
+      <div className="my-practice-go-back">
       <button onClick={goBack}>&#10006; Go Back </button>
+      </div>
       <div className="my-practice-text">
         <h2>Hi {authenticatedUser.username + '! ' + String.fromCharCode("0x00002661")} </h2>
         <h3>This is how you have been feeling lately</h3>
@@ -102,6 +107,10 @@ const MyPractice = () => {
         ))} */}
         {/* {chartData.length > 0 ? <Chart data={chartData} /> : <p>You have not logged any moods yet..</p>} */}
         <Chart />
+      </div>
+      <div className="my-practice-image">
+        <img className="img-my-practice" src={IMG("home-ocean.jpg")} alt="" />
+        <button>Delete my Account</button><button>Change Pofile Picture</button>
       </div>
     </div>
   )
