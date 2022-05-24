@@ -370,6 +370,7 @@ input {
 }
 
 .my-practice-text {
+  min-width: 542px;
   width: 50%;
   text-align: center;
 }
@@ -405,6 +406,15 @@ input {
   cursor: pointer;
 }
 
+/* CHART COMPONENT */
+
+.chart {
+  min-width: 400px;
+}
+
+.pie-chart {
+  width:100%;
+}
 
 /* INTENTION PAGE STYLES */
 
