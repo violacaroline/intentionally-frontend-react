@@ -1,15 +1,12 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import useAuth from './hooks/useAuth.js'
 
 
 const Navbar = () => {
   const title = 'Intentionally'
-  const { setAuth } = useAuth()
   const navigate = useNavigate()
   const authenticatedUser = localStorage.getItem("user")
 
   const logOut = () => {
-    setAuth()
     localStorage.clear()
     navigate('/')
   }
