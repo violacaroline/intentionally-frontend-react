@@ -1,11 +1,9 @@
 import { useRef, useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import useAuth from './hooks/useAuth'
 
 
 const Login = () => {
-  const { setAuth } = useAuth()
   const errRef = useRef()
   const navigate = useNavigate()
 
@@ -22,17 +20,14 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const response = await axios.post('http://localhost:8086/api/v1/login', // AXIOS VS FETCH - AXIOS WILL THROW AN ERROR IF THERE WAS ONE, DONT NEED TO CHECK
-        JSON.stringify({ username, password }), // AXIOS VS FETCH, NOT NECESSARY TO TAKE THE RESPONSE AND CONVERT IT TO JSON, AXIOS WILL DO IT
+      const response = await axios.post('http://localhost:8086/api/v1/login', 
+        JSON.stringify({ username, password }),
         {
           headers: { 'Content-Type': 'application/json' },
           // withCredentials: true // LOOK INTO THIS
         }
       )
       console.log('The Response from login: ', JSON.stringify(response?.data))
-      
-      const userId = response.data.user_id
-      const accessToken = response.data.access_token
       
       const persistUser = {
         username: response.data.username,
@@ -41,7 +36,6 @@ const Login = () => {
       }
 
       localStorage.setItem('user', JSON.stringify(persistUser))
-      setAuth({ username, userId, accessToken })
       setUsername('')
       setPassword('')
       setSuccess(true)
