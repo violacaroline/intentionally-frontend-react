@@ -14,7 +14,7 @@ const Home = () => {
         <p className="space-around">Intentionally is here to help you get started!</p>
         <p className="space-around">Check out "Our moods" for the 5 basic human emotions {String.fromCharCode("0x00002661")}</p>
         {authenticatedUser ? <p></p> :
-          <p>
+          <p className="space-around">
             <Link className="link-home" to="/register">Register</Link>
           </p>
         }

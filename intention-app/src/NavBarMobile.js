@@ -24,6 +24,7 @@ const NavbarMobile = () => {
 
   const logOut = () => {
     localStorage.clear()
+    closeMenu()
     navigate('/')
   }
 
