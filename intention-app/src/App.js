@@ -19,7 +19,7 @@ import NotFound from './NotFound'
 function App () {
   return (
       <div className="App">
-        <ToastContainer bodyClassName="toast-body"  autoClose={2000} />
+        <ToastContainer bodyClassName="toast-body"  autoClose={4000} />
         <Navbar /> <NavbarMobile />
         <div className="content">
           <Routes>
