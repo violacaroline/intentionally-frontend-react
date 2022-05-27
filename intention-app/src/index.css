@@ -7,7 +7,7 @@ html {
 .heading {
   font-family: Dancing Script;
   font-size: 3rem;
-  color: #044152;
+  color: #054d61;
   letter-spacing: 1px;
 }
 
@@ -64,6 +64,12 @@ html {
 
 .active {
   border-bottom: 1px solid #05546a;
+}
+
+/* NAVBAR MOBILE */
+
+.navbar-mobile {
+  display: none;
 }
 
 /* HOME PAGE STYLES */
@@ -308,6 +314,7 @@ input {
 
 .link-practice:hover {
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+  cursor: pointer;
 }
 
 /* PRACTICE NOW PAGE STYLES */
@@ -519,3 +526,171 @@ input {
   margin-left: 70px;
   letter-spacing: 2px;
 }
+
+  /* MEDIA QUERY FOR MOBILE DEVICES */
+
+@media screen and (max-width: 600px) {
+
+  .content {
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* NAVBAR MOBILE */
+
+  .navbar {
+    display: none;
+  }
+
+  .navbar-mobile {
+    display: flex;
+    align-items: center;
+    min-width: 340px;
+  }
+
+  .navbar-mobile .links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #033442;
+    opacity: 0.9;
+    top: 20%;
+    width: 100%;
+  }
+
+  .navbar-mobile a {
+    white-space: nowrap;
+    line-height: 3;
+    letter-spacing: 3px;
+    color: white;
+    text-decoration: none;
+    padding-left: 10%;
+  }
+
+  .navbar-mobile button {
+    font-family: Domine;
+    font-size: 1.05em;
+    letter-spacing: 3px;
+    line-height: 3;
+    opacity: 0.9;
+    background-color: #033442;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    padding-left: 10%;
+  }
+
+  .hamburger-icon {
+    position: absolute;
+    right: 5%;
+    width: 8%;
+    height: 8%;
+    color: #05546a;
+    cursor: pointer;
+  }
+
+  .close-icon {
+    position: absolute;
+    right: 5%;
+    width: 8%;
+    height: 8%;
+    color: #05546a;
+    cursor: pointer;
+  }
+
+  /* HOME MOBILE */
+
+  .home {
+    display: block;
+    max-width: 100vw;
+  }
+
+  .home-text {
+    padding: 0;
+    width: 40%;
+  }
+
+  .home-text p {
+    margin: 8% 0;
+  }
+
+  .home-image {
+    width: 40%;
+  }
+
+  .img-home {
+    text-align: center;
+    max-width: 50%;
+  }
+
+
+  /* REGISTER, LOGIN MOBILE*/
+
+  .register, .login {
+    width: 80%;
+  }
+
+  /* MOOD MOBILE*/
+
+  .mood {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  /* PRACTICE MOBILE */
+
+  .practice {
+    display: block;
+    margin: 0;
+  }
+
+  .practice-img {
+    margin: 6%;
+  }
+
+  /* PRACTICE NOW MOBILE */
+
+  .practice-now {
+    display: block;
+  }
+
+  .practice-now-text {
+    margin: 6% 0;
+  }
+
+  .feeling {
+    margin: 3% 0;
+  }
+
+  /* MY PRACTICE MOBILE */
+
+  .my-practice {
+    display: block;
+  }
+
+  .my-practice-text {
+    width: 100vw;
+    padding: 0;
+  }
+
+  .my-practice-image {
+    width: 100vw;
+  }
+
+  .chart {
+    margin: 0 auto;
+  }
+
+  /* INTENTION MOBILE */
+
+  .intention {
+    width: 90%;
+    height: 100vh;
+  }
+
+  .intention-presentation {
+    margin: 5% 0;
+  }
+
+} 

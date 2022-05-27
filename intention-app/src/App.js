@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './Navbar'
+import NavbarMobile from './NavBarMobile'
 import Home from './Home'
 import Register from './Register'
 import Login from './Login'
@@ -19,7 +20,7 @@ function App () {
   return (
       <div className="App">
         <ToastContainer bodyClassName="toast-body"  autoClose={2000} />
-        <Navbar />
+        <Navbar /> <NavbarMobile />
         <div className="content">
           <Routes>
             <Route path='/' element={<Home />} />

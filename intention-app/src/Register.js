@@ -143,12 +143,6 @@ const Register = () => {
       <form className="input-form-register" onSubmit={handleSubmit}>
         {
           success ? (navigate('/login')
-            // <section className="success-register-login">
-            //   <h3 >You are Registered</h3>
-            //   <p>
-            //     <Link className="link-login" to="/login">{'Login ' + String.fromCharCode("0x00002661")}</Link>
-            //   </p>
-            // </section >
           ) : (
             <>
               <p ref={errorRef} style={{ color: "red", size: "10px" }} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
