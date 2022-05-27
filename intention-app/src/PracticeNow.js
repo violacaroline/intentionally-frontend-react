@@ -1,12 +1,25 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Intention from './Intention'
 import { format } from 'date-fns'
+import { toast } from 'react-toastify'
 
 const PracticeNow = () => {
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
+  const navigate = useNavigate()
   const [intention, setIntention] = useState('')
   const [success, setSuccess] = useState(false)
+
+  const notifyReAuthenticate = () => toast('Looks like your session has expired, please login again.', {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar: true
+  })
+
+  const notifyError = () => toast('Sorry, there was an error fetching your intention.', {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar: true
+  })
 
   const fetchIntention = async (mood) => {
     try {
@@ -34,7 +47,13 @@ const PracticeNow = () => {
       setIntention(intention)
       setSuccess(true)
     } catch (error) {
-      console.log(error)
+      if (error.response.status === 401) {
+        localStorage.clear()
+        notifyReAuthenticate()
+        navigate('/')
+      } else {
+        notifyError()
+      }
     }
   }
 
