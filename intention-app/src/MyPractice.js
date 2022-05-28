@@ -70,14 +70,19 @@ const MyPractice = () => {
 
   const deleteUser = async () => {
     try {
+      await axios.delete('http://localhost:8087/api/v1/moods/delete', {
+        data: {
+          userid: authenticatedUser.userId
+        }
+      })
       await axios.delete('http://localhost:8086/api/v1/delete', {
         headers: {
           authorization: authenticatedUser.accessToken
         }
       })
 
-      console.log('User was deleted, check compass')
-
+      localStorage.clear()
+      navigate('/')
     } catch (error) {
       console.log('There was an error deleting the user')
     }
