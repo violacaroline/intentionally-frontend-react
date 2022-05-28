@@ -11,8 +11,11 @@ const Chart = ({ chartData }) => {
       legend: {       
         align: 'center',
         display: true,
+        position: 'left',
         labels: {
-          padding: 10,
+          usePointStyle: true,
+          pointStyle: 'circle',
+          padding: 25,
           font: {
             size: 12,
             family: 'Domine',
