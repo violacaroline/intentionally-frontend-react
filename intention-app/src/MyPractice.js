@@ -7,7 +7,7 @@ import Chart from './Chart'
 
 const MyPractice = () => {
   const navigate = useNavigate()
-  const [deleteUser, setDeleteUser] = useState(false)
+  const [deleteMenu, setDeleteMenu] = useState(false)
 
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
 
@@ -66,9 +66,9 @@ const MyPractice = () => {
     ],
   }
 
-  const toggleDeleteUser = () => { setDeleteUser(!deleteUser) }
+  const toggleDeleteMenu = () => { setDeleteMenu(!deleteMenu) }
 
-  const yesDeleteUser = async () => {
+  const deleteUser = async () => {
     try {
       await axios.delete('http://localhost:8086/api/v1/delete', {
         headers: {
@@ -79,7 +79,7 @@ const MyPractice = () => {
       console.log('User was deleted, check compass')
 
     } catch (error) {
-      console.log('There was an error deleteing the user')
+      console.log('There was an error deleting the user')
     }
   }
 
@@ -101,11 +101,11 @@ const MyPractice = () => {
       <div className="my-practice-image">
         <img className="img-my-practice" src={IMG("home-ocean.jpg")} alt="" />
         <button>Change Pofile Picture</button>
-        <button onClick={toggleDeleteUser}>Delete my Account</button>
-        {deleteUser && <div className="my-practice-yes-no">
+        <button onClick={toggleDeleteMenu}>Delete my Account</button>
+        {deleteMenu && <div className="my-practice-yes-no">
           <p>Are you sure you want to delete your account?</p>
           <div className="my-practice-yes-no-buttons">
-            <button onClick={yesDeleteUser}>Yes</button><button onClick={toggleDeleteUser}>No</button>
+            <button onClick={deleteUser}>Yes</button><button onClick={toggleDeleteMenu}>No</button>
           </div>
         </div>}
       </div>
