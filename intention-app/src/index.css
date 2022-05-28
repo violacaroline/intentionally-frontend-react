@@ -440,8 +440,9 @@ input {
 
 .my-practice-image button {
   display: block;
-  font-family: Dancing Script;
-  font-size: 1.8em;
+  font-family: Domine;
+  font-size: 1.2em;
+  letter-spacing: 3px;
   background-color: white;
   border: none;
   white-space: nowrap;
