@@ -418,6 +418,16 @@ input {
   height: 200px;
 }
 
+
+.my-practice-yes-no p {
+  white-space: nowrap;
+}
+
+.my-practice-yes-no-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
 .my-practice-go-back {
   display: block;
   max-height: fit-content;

@@ -5,8 +5,10 @@ import Chart from './Chart'
 
 
 
-const MyPractice = () => {  
+const MyPractice = () => {
   const navigate = useNavigate()
+  const [deleteUser, setDeleteUser] = useState(false)
+
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
 
   const IMG = (imgName) => {
@@ -31,11 +33,6 @@ const MyPractice = () => {
     }
     fetchMoods()
   }, [authenticatedUser.accessToken])
-
-
-  const goBack = () => {
-    navigate('/practice')
-  }
 
   const data = {
     labels: ['Joy', 'Fear', 'Sadness', 'Anger', 'Disgust'],
@@ -68,6 +65,27 @@ const MyPractice = () => {
       },
     ],
   }
+
+  const toggleDeleteUser = () => { setDeleteUser(!deleteUser) }
+
+  const yesDeleteUser = async () => {
+    try {
+      await axios.delete('http://localhost:8086/api/v1/delete', {
+        headers: {
+          authorization: authenticatedUser.accessToken
+        }
+      })
+
+      console.log('User was deleted, check compass')
+
+    } catch (error) {
+      console.log('There was an error deleteing the user')
+    }
+  }
+
+  const goBack = () => {
+    navigate('/practice')
+  }
   return (
     <div className="my-practice">
       <div className="my-practice-go-back">
@@ -76,14 +94,20 @@ const MyPractice = () => {
       <div className="my-practice-text">
         <h2>Hi {authenticatedUser.username + '! ' + String.fromCharCode("0x00002661")} </h2>
         {moods.length > 0 ? <>
-        <h3>This is how you have been feeling lately</h3>
-        <Chart chartData={data} /> </> :
-         <p>You have not logged any moods yet..</p>}
+          <h3>This is how you have been feeling lately</h3>
+          <Chart chartData={data} /> </> :
+          <p>You have not logged any moods yet..</p>}
       </div>
       <div className="my-practice-image">
         <img className="img-my-practice" src={IMG("home-ocean.jpg")} alt="" />
         <button>Change Pofile Picture</button>
-        <button>Delete my Account</button>
+        <button onClick={toggleDeleteUser}>Delete my Account</button>
+        {deleteUser && <div className="my-practice-yes-no">
+          <p>Are you sure you want to delete your account?</p>
+          <div className="my-practice-yes-no-buttons">
+            <button onClick={yesDeleteUser}>Yes</button><button onClick={toggleDeleteUser}>No</button>
+          </div>
+        </div>}
       </div>
     </div>
   )
