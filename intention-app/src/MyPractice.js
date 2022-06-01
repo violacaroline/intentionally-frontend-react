@@ -12,6 +12,7 @@ const MyPractice = () => {
   const [uploadImageMenu, setUploadImageMenu] = useState(false)
   const [file, setFile] = useState(null)
   const [base64, setBase64] = useState('')
+  const [profilePhoto, setProfilePhoto] = useState('')
   const [moods, setMoods] = useState([])
 
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
@@ -27,6 +28,11 @@ const MyPractice = () => {
   })
 
   const notifyFileTooBig = () => toast('The file is too big', {
+    position: toast.POSITION.TOP_CENTER,
+    hideProgressBar: true
+  })
+
+  const notifyErrorOccured = () => toast('An error occurred, please try again', {
     position: toast.POSITION.TOP_CENTER,
     hideProgressBar: true
   })
@@ -136,6 +142,28 @@ const MyPractice = () => {
     setFile(event.target.files[0])
   }
 
+
+  useEffect(() => {
+    const getImage = async () => {
+      try {
+        const response = await axios.get('http://localhost:8088/api/v1/images', {
+          headers: {
+            authorization: authenticatedUser.accessToken
+          },
+          data: {
+            userId: authenticatedUser.userId
+          }
+        })
+  
+        return response.data
+      } catch (error) {
+        console.log('The error', error)
+      }
+    }
+    getImage()
+  }, [authenticatedUser.accessToken, authenticatedUser.userId])
+  
+
   useEffect(() => {
     if (file) {
       const getBase64 = () => {
@@ -170,7 +198,7 @@ const MyPractice = () => {
           if (error.response.status === 413) {
             notifyFileTooBig()
           } else {
-
+            notifyErrorOccured()
           }
         }
       }
@@ -198,7 +226,7 @@ const MyPractice = () => {
           <p>You have not logged any moods yet..</p>}
       </div>
       <div className="my-practice-image">
-        <img className="img-my-practice" src={IMG("home-ocean.jpg")} alt="" />
+        <img className="img-my-practice" src={profilePhoto ? `${profilePhoto}`: IMG("avatar.png") } alt="" />
         <button onClick={toggleUploadMenu}>Change Pofile Picture</button>
         {uploadImageMenu && <form encType='multipart/formdata' className="my-practice-upload">
           <label htmlFor="file">{file ? file.name : 'Choose your photo ' + String.fromCharCode("0x00002661")}
