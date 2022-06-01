@@ -201,7 +201,7 @@ const MyPractice = () => {
         <img className="img-my-practice" src={IMG("home-ocean.jpg")} alt="" />
         <button onClick={toggleUploadMenu}>Change Pofile Picture</button>
         {uploadImageMenu && <form encType='multipart/formdata' className="my-practice-upload">
-          <label htmlFor="file">{file ? file.name : 'Click here to choose your photo' + String.fromCharCode("0x00002661")}
+          <label htmlFor="file">{file ? file.name : 'Click here to choose your photo ' + String.fromCharCode("0x00002661")}
             <input type="file" id="file" name="file" className="input-file" onChange={handleFile} />
           </label>
           <button className="save-photo-button" onClick={handleUpload}>Save photo</button>
