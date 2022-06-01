@@ -111,7 +111,6 @@ const Register = () => {
           headers: {
             'Content-Type': 'application/json'
           }
-          // withCredentials: true  // <-- THIS WILL NEED TO BE LOOKED INTO DUE TO CORS
         }
       )
       setSuccess(true)

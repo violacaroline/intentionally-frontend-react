@@ -6,6 +6,7 @@ html {
 
 .heading {
   font-family: Dancing Script;
+  font-weight: 400;
   font-size: 3rem;
   color: #054d61;
   letter-spacing: 1px;
@@ -63,7 +64,7 @@ html {
 }
 
 .active {
-  border-bottom: 1px solid #05546a;
+  border-bottom: 1px solid #033442;
 }
 
 /* NAVBAR MOBILE */
@@ -264,6 +265,7 @@ input {
 
 .mood-description h2 {
   font-family: Dancing Script;
+  font-weight: 100;
   margin: 0;
   font-size: 2em;
   color: #05546a;
@@ -364,7 +366,7 @@ input {
 }
 
 .feeling:hover {
-  border-bottom: 2px solid #05546a;
+  border-bottom: 1px solid #05546a;
   cursor: pointer;
 }
 
@@ -418,6 +420,39 @@ input {
   height: 200px;
 }
 
+.my-practice-upload .input-file {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.my-practice-upload label {
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 2% 0;
+  max-width: 400px;
+}
+
+.my-practice-upload label:hover {
+  cursor: pointer;
+}
+
+.my-practice-upload .save-photo-button {
+  background-color: #05546a;
+  padding: 2%;
+  border-radius: 10px;
+  font-family: Dancing Script;
+  color: white;
+}
+
+.my-practice-upload .save-photo-button:hover {
+  cursor: pointer;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
 .my-practice-yes-no p {
   white-space: nowrap;
@@ -539,7 +574,7 @@ input {
   letter-spacing: 2px;
 }
 
-  /* MEDIA QUERY FOR MOBILE DEVICES */
+/* MEDIA QUERY FOR MOBILE DEVICES */
 
 @media screen and (max-width: 600px) {
 
@@ -639,7 +674,8 @@ input {
 
   /* REGISTER, LOGIN MOBILE*/
 
-  .register, .login {
+  .register,
+  .login {
     width: 80%;
   }
 
@@ -705,4 +741,4 @@ input {
     margin: 5% 0;
   }
 
-} 
+}
