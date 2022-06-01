@@ -461,6 +461,21 @@ input {
 .my-practice-yes-no-buttons {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.my-practice-yes-no-buttons .yes-no {
+  background-color: #05546a;
+  padding: 2%;
+  margin: 2%;
+  border-radius: 10px;
+  font-family: Dancing Script;
+  color: white;  
+}
+
+.my-practice-yes-no-buttons .yes-no:hover {
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .my-practice-go-back {

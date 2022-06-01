@@ -201,7 +201,7 @@ const MyPractice = () => {
         <img className="img-my-practice" src={IMG("home-ocean.jpg")} alt="" />
         <button onClick={toggleUploadMenu}>Change Pofile Picture</button>
         {uploadImageMenu && <form encType='multipart/formdata' className="my-practice-upload">
-          <label htmlFor="file">{file ? file.name : 'Click here to choose your photo ' + String.fromCharCode("0x00002661")}
+          <label htmlFor="file">{file ? file.name : 'Choose your photo ' + String.fromCharCode("0x00002661")}
             <input type="file" id="file" name="file" className="input-file" onChange={handleFile} />
           </label>
           <button className="save-photo-button" onClick={handleUpload}>Save photo</button>
@@ -209,8 +209,9 @@ const MyPractice = () => {
         <button onClick={toggleDeleteMenu}>Delete my Account</button>
         {deleteMenu && <div className="my-practice-yes-no">
           <p>Are you sure you want to delete your account?</p>
+          <p>This also deletes your logged moods.</p>
           <div className="my-practice-yes-no-buttons">
-            <button onClick={deleteUser}>Yes</button><button onClick={toggleDeleteMenu}>No</button>
+            <button className="yes-no" onClick={deleteUser}>Yes</button><button className="yes-no" onClick={toggleDeleteMenu}>No</button>
           </div>
         </div>}
       </div>
