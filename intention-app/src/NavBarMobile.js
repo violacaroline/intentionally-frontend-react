@@ -37,6 +37,7 @@ const NavbarMobile = () => {
           <NavLink to="/" onClick={closeMenu} >Home</NavLink>
           <NavLink to="/moods" onClick={closeMenu} >Our moods</NavLink>
           {authenticatedUser && <NavLink to="/practice" onClick={closeMenu} >Practice</NavLink>}
+          <NavLink to="/info" onClick={closeMenu} >Info</NavLink>
           {authenticatedUser ?
             <button onClick={logOut}>Logout</button>
             : <> <NavLink to="/register" onClick={closeMenu} >Register</NavLink>
