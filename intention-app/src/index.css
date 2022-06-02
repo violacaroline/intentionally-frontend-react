@@ -588,6 +588,7 @@ input {
 }
 
 /* INFO PAGE STYLES */
+
 .info {
   display: flex;
   justify-content: center;
@@ -617,6 +618,7 @@ input {
 }
 
 /* TOAST STYLES */
+
 .toast-body {
   text-align: center;
   font-family: Domine;
