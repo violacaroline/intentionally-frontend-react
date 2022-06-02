@@ -23,11 +23,9 @@ const Login = () => {
       const response = await axios.post('http://localhost:8086/api/v1/login', 
         JSON.stringify({ username, password }),
         {
-          headers: { 'Content-Type': 'application/json' },
-          // withCredentials: true // LOOK INTO THIS
+          headers: { 'Content-Type': 'application/json' }
         }
       )
-      console.log('The Response from login: ', JSON.stringify(response?.data))
       
       const persistUser = {
         username: response.data.username,

@@ -11,16 +11,20 @@ const PracticeNow = () => {
   const [intention, setIntention] = useState('')
   const [success, setSuccess] = useState(false)
 
-  const notifyReAuthenticate = () => toast('Looks like your session has expired, please login again.', {
+  // Error toast messages
+  const reAuthenticate = 'Looks like your session has expired, please login again.'
+  const errorIntention = 'Sorry, there was an error fetching your intention.'
+
+  const notify = (message) => toast(message, {
     position: toast.POSITION.TOP_CENTER,
     hideProgressBar: true
   })
 
-  const notifyError = () => toast('Sorry, there was an error fetching your intention.', {
-    position: toast.POSITION.TOP_CENTER,
-    hideProgressBar: true
-  })
-
+  /**
+   * Fetches an intention based on the user's logged mood.
+   *
+   * @param {Mood} mood 
+   */
   const fetchIntention = async (mood) => {
     try {
       const response = await axios.get('http://localhost:8085/api/v1/intentions', {
@@ -49,10 +53,10 @@ const PracticeNow = () => {
     } catch (error) {
       if (error.response.status === 401) {
         localStorage.clear()
-        notifyReAuthenticate()
+        notify(reAuthenticate)
         navigate('/')
       } else {
-        notifyError()
+        notify(errorIntention)
       }
     }
   }

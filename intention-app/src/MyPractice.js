@@ -17,41 +17,22 @@ const MyPractice = () => {
 
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
 
-  const notifyReAuthenticate = () => toast('Looks like your session has expired, please login again.', {
+  // Error toast messages
+  const chooseFile = 'Choose a file first'
+  const fileTooBig = 'The file is too big and wont be saved'
+  const reAuthenticate = 'Looks like your session has expired, please login again.'
+  const errorOccurred = 'An error occurred, please try again'
+  const successDeleteAccount = 'Sad to see you go, your account was deleted'
+  const errorDeleteAccount = 'There was an error deleting your account'
+
+  const notify = (message) => toast(message, {
     position: toast.POSITION.TOP_CENTER,
     hideProgressBar: true
   })
 
-  const notifyChooseFile = () => toast('Choose a file first', {
-    position: toast.POSITION.TOP_CENTER,
-    hideProgressBar: true
-  })
-
-  const notifyFileTooBig = () => toast('The file is too big', {
-    position: toast.POSITION.TOP_CENTER,
-    hideProgressBar: true
-  })
-
-  const notifyErrorOccured = () => toast('An error occurred, please try again', {
-    position: toast.POSITION.TOP_CENTER,
-    hideProgressBar: true
-  })
-
-  const notifySuccessDeleteAccount = () => toast('Sad to see you go, your account was deleted', {
-    position: toast.POSITION.TOP_CENTER,
-    hideProgressBar: true
-  })
-
-  const notifyErrorDeleteAccount = () => toast('There was an error deleting your account', {
-    position: toast.POSITION.TOP_CENTER,
-    hideProgressBar: true
-  })
-
-  const IMG = (imgName) => {
-    return require(`../public/images/${imgName}`)
-  }
-
-
+  /**
+   * Fetches a users previously logged moods.
+   */
   useEffect(() => {
     const fetchMoods = async () => {
       try {
@@ -65,7 +46,7 @@ const MyPractice = () => {
       } catch (error) {
         if (error.response.status === 401) {
           localStorage.clear()
-          notifyReAuthenticate()
+          notify(reAuthenticate)
           navigate('/')
         }
       }
@@ -73,6 +54,9 @@ const MyPractice = () => {
     fetchMoods()
   }, [authenticatedUser.accessToken, navigate])
 
+  /**
+   * Creates a data object of the moods that will be displayed in the chart.
+   */
   const data = {
     labels: ['Joy', 'Fear', 'Sadness', 'Anger', 'Disgust'],
     datasets: [
@@ -109,6 +93,9 @@ const MyPractice = () => {
   const toggleUploadMenu = () => { setUploadImageMenu(!uploadImageMenu) }
 
 
+  /**
+   * Deletes a specific user's moods, used when account is deleted.
+   */
   const deleteMoods = async () => {
     try {
       await axios.delete('http://localhost:8087/api/v1/moods/delete', {
@@ -117,10 +104,13 @@ const MyPractice = () => {
         }
       })
     } catch (error) {
-      notifyErrorDeleteAccount()
+      notify(errorDeleteAccount)
     }
   }
 
+  /**
+   * Deletes a specific user's images, used when account is deleted.
+   */
   const deleteImages = async () => {
     try {
       await axios.delete('http://localhost:8088/api/v1/images/delete', {
@@ -129,10 +119,13 @@ const MyPractice = () => {
         }
       })
     } catch (error) {
-      notifyErrorDeleteAccount()
+      notify(errorDeleteAccount)
     }
   }
 
+  /**
+   * Deletes a specific user from the database, along with all it's saved data. 
+   */
   const deleteUser = async () => {
     deleteMoods()
     deleteImages()
@@ -143,10 +136,10 @@ const MyPractice = () => {
         }
       })
       localStorage.clear()
-      notifySuccessDeleteAccount()
+      notify(successDeleteAccount)
       navigate('/')
     } catch (error) {
-      notifyErrorDeleteAccount()
+      notify(errorDeleteAccount)
     }
   }
 
@@ -154,7 +147,9 @@ const MyPractice = () => {
     setFile(event.target.files[0])
   }
 
-
+  /**
+   * Gets the profile photo of the logged in user, if there is one.
+   */
   useEffect(() => {
     const getImage = async () => {
       try {
@@ -177,6 +172,9 @@ const MyPractice = () => {
     getImage()
   }, [authenticatedUser.accessToken, authenticatedUser.userId])  
 
+  /**
+   * Reads and converts image files to base64 strings to save in the database.
+   */
   useEffect(() => {
     if (file) {
       const getBase64 = () => {
@@ -194,6 +192,11 @@ const MyPractice = () => {
     }
   }, [file, profilePhoto])
 
+  /**
+   * Uploads a new profile photo to the database.
+   *
+   * @param {*} event 
+   */
   const handleUpload = (event) => {
     event.preventDefault()
     if (base64) {
@@ -211,18 +214,23 @@ const MyPractice = () => {
           })
         } catch (error) {
           if (error.response.status === 413) {
-            notifyFileTooBig()
+            notify(fileTooBig)
           } else {
-            notifyErrorOccured()
+            notify(errorOccurred)
           }
         }
       }
       postImage()
       setFile(null)
       setBase64('')
+      setUploadImageMenu(false)
     } else {
-      notifyChooseFile()
+      notify(chooseFile)
     }
+  }
+
+  const IMG = (imgName) => {
+    return require(`../public/images/${imgName}`)
   }
 
   const goBack = () => {
