@@ -802,4 +802,9 @@ input {
     margin: 5% 0;
   }
 
+  /* INFO MOBILE */
+  .info-text {
+    width: 70%;
+  }
+
 }
