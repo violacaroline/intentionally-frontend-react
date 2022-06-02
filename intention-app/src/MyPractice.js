@@ -47,9 +47,9 @@ const MyPractice = () => {
     hideProgressBar: true
   })
 
-  // const IMG = (imgName) => {
-  //   return require(`../public/images/${imgName}`)
-  // }
+  const IMG = (imgName) => {
+    return require(`../public/images/${imgName}`)
+  }
 
 
   useEffect(() => {
@@ -169,7 +169,9 @@ const MyPractice = () => {
   
         setProfilePhoto(response.data)
       } catch (error) {
-        console.log('The error', error)
+        if (error.response.status === 404) {
+          setProfilePhoto('noimage')
+        }
       }
     }
     getImage()
@@ -240,6 +242,7 @@ const MyPractice = () => {
       </div>
       <div className="my-practice-image">
         {profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt="" /> :
+        profilePhoto === 'noimage' ? <img className="img-my-practice" src={IMG('avatar.png')} alt="" /> :
           <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto}`} alt="" />
         }  
         <button onClick={toggleUploadMenu}>Change Pofile Picture {uploadImageMenu ? <>&#9650;</> : <>&#9660;</>}</button>
