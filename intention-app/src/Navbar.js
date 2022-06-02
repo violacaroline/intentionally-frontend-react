@@ -18,6 +18,7 @@ const Navbar = () => {
         <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>Home</NavLink>
         <NavLink to="/moods" className={({ isActive }) => (isActive ? "active" : "")}>Our moods</NavLink>
         {authenticatedUser && <NavLink to="/practice" className={({ isActive }) => (isActive ? "active" : "")}>Practice</NavLink>}
+        <NavLink to="/info" className={({ isActive }) => (isActive ? "active" : "")}>Info</NavLink>
         {authenticatedUser ?
           <button onClick={logOut}>Logout</button>
           : <> <NavLink to="/register" className={({ isActive }) => (isActive ? "active" : "")}>Register</NavLink>

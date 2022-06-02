@@ -57,12 +57,19 @@ const PracticeNow = () => {
     }
   }
 
+  const goBack = () => {
+    navigate('/practice')
+  }
+
   return (
     <div className="practice-now">
       {success ?
         <Intention intention={intention} />
         :
         <>
+          <div className="practice-now-go-back">
+            <button onClick={goBack}>&#10006; Go Back </button>
+          </div>
           <div className="practice-now-img"></div>
           <div className="practice-now-text">
             <h2>{'Tell me, how are you feeling?'}</h2>

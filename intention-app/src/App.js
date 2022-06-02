@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './Navbar'
 import NavbarMobile from './NavBarMobile'
 import Home from './Home'
+import Info from './Info'
 import Register from './Register'
 import Login from './Login'
 import Mood from './Mood'
@@ -24,6 +25,7 @@ function App () {
         <div className="content">
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/info' element={<Info />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/moods' element={<Mood />} />

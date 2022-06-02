@@ -353,6 +353,25 @@ input {
   white-space: nowrap;
 }
 
+.practice-now-go-back {
+  display: block;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.practice-now-go-back button {
+  background-color: white;
+  color: #05546a;
+  font-size: 1.2em;
+  font-family: Domine;
+  border: none;
+}
+
+.practice-now-go-back button:hover {
+  color: #3a94ad;
+  cursor: pointer;
+}
+
 .feeling {
   font-family: Domine;
   font-size: 1.4em;
@@ -520,9 +539,7 @@ input {
   margin: 0 auto;
   position: relative;
   width: 70%;
-
 }
-
 
 /* INTENTION PAGE STYLES */
 
@@ -570,6 +587,36 @@ input {
   cursor: pointer;
 }
 
+/* INFO PAGE STYLES */
+.info {
+  display: flex;
+  justify-content: center;
+}
+
+.info-text {
+  width: 50%;
+  height: 100vh;
+  padding: 3%;
+  text-align: left;
+  color: #033442;
+}
+
+.info-text h3 {
+  font-family: Dancing Script;
+  font-weight: 100;
+  font-size: 1.7em;
+}
+
+.info-text p {
+  color: black;
+  line-height: 1.4;
+  letter-spacing: 1px;
+}
+
+.info-text p a {
+  color: #033442;
+}
+
 /* TOAST STYLES */
 .toast-body {
   text-align: center;
@@ -579,7 +626,6 @@ input {
   padding: 5px;
   border-radius: 5px;
 }
-
 
 /* NOT FOUND PAGE STYLES */
 
