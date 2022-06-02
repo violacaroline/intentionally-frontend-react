@@ -353,6 +353,25 @@ input {
   white-space: nowrap;
 }
 
+.practice-now-go-back {
+  display: block;
+  white-space: nowrap;
+  margin-bottom: 20px;
+}
+
+.practice-now-go-back button {
+  background-color: white;
+  color: #05546a;
+  font-size: 1.2em;
+  font-family: Domine;
+  border: none;
+}
+
+.practice-now-go-back button:hover {
+  color: #3a94ad;
+  cursor: pointer;
+}
+
 .feeling {
   font-family: Domine;
   font-size: 1.4em;
@@ -597,6 +616,7 @@ input {
 .info-text p a {
   color: #033442;
 }
+
 /* TOAST STYLES */
 .toast-body {
   text-align: center;

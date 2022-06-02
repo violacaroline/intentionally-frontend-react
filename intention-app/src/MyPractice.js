@@ -155,14 +155,13 @@ const MyPractice = () => {
           }
         })
   
-        return response.data
+        setProfilePhoto(response.data)
       } catch (error) {
         console.log('The error', error)
       }
     }
     getImage()
-  }, [authenticatedUser.accessToken, authenticatedUser.userId])
-  
+  }, [authenticatedUser.accessToken, authenticatedUser.userId])  
 
   useEffect(() => {
     if (file) {
@@ -226,7 +225,9 @@ const MyPractice = () => {
           <p>You have not logged any moods yet..</p>}
       </div>
       <div className="my-practice-image">
-        <img className="img-my-practice" src={profilePhoto ? `${profilePhoto}`: IMG("avatar.png") } alt="" />
+        {profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt="" /> :
+          <img className="img-my-practice" src={IMG("avatar.png")} alt="" />
+        }  
         <button onClick={toggleUploadMenu}>Change Pofile Picture</button>
         {uploadImageMenu && <form encType='multipart/formdata' className="my-practice-upload">
           <label htmlFor="file">{file ? file.name : 'Choose your photo ' + String.fromCharCode("0x00002661")}
