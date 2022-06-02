@@ -598,17 +598,16 @@ input {
   height: 100vh;
   padding: 3%;
   text-align: left;
-  color: #033442;
 }
 
 .info-text h3 {
   font-family: Dancing Script;
+  color: #054d61;
   font-weight: 100;
   font-size: 1.7em;
 }
 
 .info-text p {
-  color: black;
   line-height: 1.4;
   letter-spacing: 1px;
 }

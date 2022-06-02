@@ -228,14 +228,14 @@ const MyPractice = () => {
         {profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt="" /> :
           <img className="img-my-practice" src={IMG("avatar.png")} alt="" />
         }  
-        <button onClick={toggleUploadMenu}>Change Pofile Picture</button>
+        <button onClick={toggleUploadMenu}>Change Pofile Picture {uploadImageMenu ? <>&#9650;</> : <>&#9660;</>}</button>
         {uploadImageMenu && <form encType='multipart/formdata' className="my-practice-upload">
           <label htmlFor="file">{file ? file.name : 'Choose your photo ' + String.fromCharCode("0x00002661")}
             <input type="file" id="file" name="file" className="input-file" onChange={handleFile} />
           </label>
           <button className="save-photo-button" onClick={handleUpload}>Save photo</button>
         </form>}
-        <button onClick={toggleDeleteMenu}>Delete my Account</button>
+        <button onClick={toggleDeleteMenu}>Delete my Account {deleteMenu ? <>&#9650;</> : <>&#9660;</>}</button>
         {deleteMenu && <div className="my-practice-yes-no">
           <p>Are you sure you want to delete your account?</p>
           <p>This also deletes your logged moods.</p>

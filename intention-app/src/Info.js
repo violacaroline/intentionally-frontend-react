@@ -11,7 +11,7 @@ const Info = () => {
         <h3>Contact</h3>
         <p>Any questions, please contact me at <a href="mailto:ca223pw@student.lnu.se">ca223pw@student.lnu.se</a></p>
         <p>This web application is a student project made during the first year of Web Programming at Linneaus University by Caroline Åkesson</p>
-        <p>It has been a chance and a challenge to create this tiny space. I made it with the intention to help people create a daily meditation practice and also keep track of their overall mental health {String.fromCharCode("0x00002661")}</p>
+        <p>It has been a great oppurtunity to try out new technichs and also a challenge to create this tiny space. I made it with the intention to help people create a daily meditation practice and also keep track of their overall mental health {String.fromCharCode("0x00002661")}</p>
       </div>
     </div>
   )
