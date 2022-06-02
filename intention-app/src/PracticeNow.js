@@ -62,7 +62,7 @@ const PracticeNow = () => {
   }
 
   return (
-    <div className="practice-now">
+    <div>
       {success ?
         <Intention intention={intention} />
         :
@@ -70,6 +70,7 @@ const PracticeNow = () => {
           <div className="practice-now-go-back">
             <button onClick={goBack}>&#10006; Go Back </button>
           </div>
+          <div className="practice-now">
           <div className="practice-now-img"></div>
           <div className="practice-now-text">
             <h2>{'Tell me, how are you feeling?'}</h2>
@@ -78,6 +79,7 @@ const PracticeNow = () => {
             <button onClick={() => { fetchIntention('anger') }} className="feeling">Anger</button>
             <button onClick={() => { fetchIntention('sadness') }} className="feeling">Sadness</button>
             <button onClick={() => { fetchIntention('disgust') }} className="feeling">Disgust</button>
+          </div>
           </div>
         </>
       }

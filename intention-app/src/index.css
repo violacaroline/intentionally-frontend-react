@@ -325,7 +325,7 @@ input {
   min-width: 800px;
   margin: 0 50px 0 50px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .practice-now-img {
@@ -333,7 +333,6 @@ input {
   min-width: 50%;
   min-height: 500px;
   background-image: url('../public/images/ocean.jpg');
-
 }
 
 .practice-now-text {
@@ -355,6 +354,7 @@ input {
 
 .practice-now-go-back {
   display: block;
+  width: 100%;
   white-space: nowrap;
   margin-bottom: 20px;
 }
