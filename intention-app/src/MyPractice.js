@@ -14,7 +14,8 @@ const MyPractice = () => {
   const [base64, setBase64] = useState('')
   const [profilePhoto, setProfilePhoto] = useState('')
   const [moods, setMoods] = useState([])
-  const [isPending, setIsPending] = useState(true)
+  const [isPendingImage, setIsPendingImage] = useState(true)
+  const [isPendingChart, setIsPendingChart] = useState(true)
 
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
 
@@ -45,6 +46,7 @@ const MyPractice = () => {
         })
 
         setMoods(data)
+        setIsPendingChart(false)
       } catch (error) {
         if (error.response.status === 401) {
           localStorage.clear()
@@ -141,7 +143,7 @@ const MyPractice = () => {
     // Only fetch profile photo if it's not already saved in localstorage.
     if (localStorage.getItem('image')) {
       setProfilePhoto(localStorage.getItem('image'))
-      setIsPending(false)
+      setIsPendingImage(false)
     } else {
       const getImage = async () => {
         try {
@@ -156,11 +158,11 @@ const MyPractice = () => {
 
           if (response.status === 204) {
             setProfilePhoto('noimage')
-            setIsPending(false)
+            setIsPendingImage(false)
           } else {
             localStorage.setItem('image', response.data.data)
             setProfilePhoto(response.data)
-            setIsPending(false)
+            setIsPendingImage(false)
           }          
         } catch (error) {
           notify(errorGetImage)
@@ -242,13 +244,13 @@ const MyPractice = () => {
       </div>
       <div className="my-practice-text">
         <h2>Hi {authenticatedUser.username + '! ' + String.fromCharCode("0x00002661")} </h2>
-        {moods.length > 0 ? <>
+        {isPendingChart ? <div className="loading">Loading...</div> : moods.length > 0 ? <>
           <h3>This is how you have been feeling lately</h3>
           <Chart chartData={data} /> </> :
           <p>You have not logged any moods yet..</p>}
       </div>
       <div className="my-practice-image">
-        {isPending ? <div className="loading">Loading...</div> : profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt=""/> :
+        {isPendingImage ? <div className="loading">Loading...</div> : profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt=""/> :
           profilePhoto === 'noimage' ? <img className="img-my-practice" src={IMG('avatar.png')} alt="" /> :
             <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto}`} alt=""/>
         }
