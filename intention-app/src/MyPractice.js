@@ -92,30 +92,14 @@ const MyPractice = () => {
   const toggleDeleteMenu = () => { setDeleteMenu(!deleteMenu) }
   const toggleUploadMenu = () => { setUploadImageMenu(!uploadImageMenu) }
 
-
-  /**
-   * Deletes a specific user's moods, used when account is deleted.
-   */
-  const deleteMoods = async () => {
+  const deleteData = async (url, token, id) => {
     try {
-      await axios.delete('http://localhost:8087/api/v1/moods/delete', {
+      await axios.delete(url, {
+        headers: {
+          authorization: token
+        },
         data: {
-          userid: authenticatedUser.userId
-        }
-      })
-    } catch (error) {
-      notify(errorDeleteAccount)
-    }
-  }
-
-  /**
-   * Deletes a specific user's images, used when account is deleted.
-   */
-  const deleteImages = async () => {
-    try {
-      await axios.delete('http://localhost:8088/api/v1/images/delete', {
-        data: {
-          userid: authenticatedUser.userId
+          userid: id
         }
       })
     } catch (error) {
@@ -127,8 +111,9 @@ const MyPractice = () => {
    * Deletes a specific user from the database, along with all it's saved data. 
    */
   const deleteUser = async () => {
-    deleteMoods()
-    deleteImages()
+    deleteData('http://localhost:8087/api/v1/moods/delete', authenticatedUser.accessToken, authenticatedUser.userId)
+    deleteData('http://localhost:8088/api/v1/images/delete', authenticatedUser.accessToken, authenticatedUser.userId)
+
     try {
       await axios.delete('http://localhost:8086/api/v1/delete', {
         headers: {
@@ -151,26 +136,32 @@ const MyPractice = () => {
    * Gets the profile photo of the logged in user, if there is one.
    */
   useEffect(() => {
-    const getImage = async () => {
-      try {
-        const response = await axios.get('http://localhost:8088/api/v1/images', {
-          headers: {
-            authorization: authenticatedUser.accessToken
-          },
-          data: {
-            userId: authenticatedUser.userId
+    // Only fetch profile photo if it's not already saved in localstorage.
+    if (localStorage.getItem('image')) {
+      setProfilePhoto(localStorage.getItem('image'))
+    } else {
+      const getImage = async () => {
+        try {
+          const response = await axios.get('http://localhost:8088/api/v1/images', {
+            headers: {
+              authorization: authenticatedUser.accessToken
+            },
+            data: {
+              userId: authenticatedUser.userId
+            }
+          })
+
+          localStorage.setItem('image', response.data.data)
+          setProfilePhoto(response.data)
+        } catch (error) {
+          if (error.response.status === 404) {
+            setProfilePhoto('noimage')
           }
-        })
-  
-        setProfilePhoto(response.data)
-      } catch (error) {
-        if (error.response.status === 404) {
-          setProfilePhoto('noimage')
         }
       }
+      getImage()
     }
-    getImage()
-  }, [authenticatedUser.accessToken, authenticatedUser.userId])  
+  }, [authenticatedUser.accessToken, authenticatedUser.userId])
 
   /**
    * Reads and converts image files to base64 strings to save in the database.
@@ -201,6 +192,7 @@ const MyPractice = () => {
     event.preventDefault()
     if (base64) {
       setProfilePhoto(base64)
+      localStorage.setItem('image', base64)
       const postImage = async () => {
         try {
           await axios.post('http://localhost:8088/api/v1/images', {
@@ -250,9 +242,9 @@ const MyPractice = () => {
       </div>
       <div className="my-practice-image">
         {profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt="" /> :
-        profilePhoto === 'noimage' ? <img className="img-my-practice" src={IMG('avatar.png')} alt="" /> :
-          <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto}`} alt="" />
-        }  
+          profilePhoto === 'noimage' ? <img className="img-my-practice" src={IMG('avatar.png')} alt="" /> :
+            <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto}`} alt="" />
+        }
         <button onClick={toggleUploadMenu}>Change Pofile Picture {uploadImageMenu ? <>&#9650;</> : <>&#9660;</>}</button>
         {uploadImageMenu && <form encType='multipart/formdata' className="my-practice-upload">
           <label htmlFor="file">{file ? file.name : 'Choose your photo ' + String.fromCharCode("0x00002661")}
