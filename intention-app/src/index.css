@@ -795,17 +795,17 @@ input {
   /* INTENTION MOBILE */
 
   .intention {
-    width: 90%;
+    width: 100vw;
     height: 100vh;
   }
 
   .intention-presentation {
-    margin: 5% 0;
+    width: 75%;
+    margin: 5% auto;
   }
 
   /* INFO MOBILE */
   .info-text {
     width: 70%;
   }
-
 }
