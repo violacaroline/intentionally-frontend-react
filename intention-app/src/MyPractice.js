@@ -20,6 +20,7 @@ const MyPractice = () => {
   // Error toast messages
   const chooseFile = 'Choose a file first'
   const fileTooBig = 'The file is too big and wont be saved'
+  const errorGetImage = "There was an error displaying you profile photo!"
   const reAuthenticate = 'Looks like your session has expired, please login again.'
   const errorOccurred = 'An error occurred, please try again'
   const successDeleteAccount = 'Sad to see you go, your account was deleted'
@@ -151,12 +152,14 @@ const MyPractice = () => {
             }
           })
 
-          localStorage.setItem('image', response.data.data)
-          setProfilePhoto(response.data)
-        } catch (error) {
-          if (error.response.status === 404) {
+          if (response.status === 204) {
             setProfilePhoto('noimage')
-          }
+          } else {
+            localStorage.setItem('image', response.data.data)
+            setProfilePhoto(response.data)
+          }          
+        } catch (error) {
+          notify(errorGetImage)
         }
       }
       getImage()
