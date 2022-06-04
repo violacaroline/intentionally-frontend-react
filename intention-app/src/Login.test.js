@@ -1,23 +1,24 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import Login from './Login'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 describe('Render Login page', () => {
-  it('Renders a Username input field', () => {
-    render(<Login />)
+  test('Renders a Username input field', () => {
+    render(<Router><Login /></Router>)
     const usernameInputField = screen.getByText("Username")
     expect(usernameInputField).toBeInTheDocument()
   })
 
-  it('Renders a Pass Phrase input field', () => {
-    render(<Login />)
+  test('Renders a Pass Phrase input field', () => {
+    render(<Router><Login /></Router>)
     const passwordInputField = screen.getByText("Pass Phrase")
     expect(passwordInputField).toBeInTheDocument()
   })
 
-  it('Renders a submit input field', () => {
-    render(<Login />)
+  test('Renders a submit input field', () => {
+    render(<Router><Login /></Router>)
     const submitInputField = screen.getByText("Submit "  + String.fromCharCode("0x00002661"))
     expect(submitInputField).toBeInTheDocument()
   })
