@@ -14,6 +14,7 @@ const MyPractice = () => {
   const [base64, setBase64] = useState('')
   const [profilePhoto, setProfilePhoto] = useState('')
   const [moods, setMoods] = useState([])
+  const [isPending, setIsPending] = useState(true)
 
   const authenticatedUser = JSON.parse(localStorage.getItem("user"))
 
@@ -140,6 +141,7 @@ const MyPractice = () => {
     // Only fetch profile photo if it's not already saved in localstorage.
     if (localStorage.getItem('image')) {
       setProfilePhoto(localStorage.getItem('image'))
+      setIsPending(false)
     } else {
       const getImage = async () => {
         try {
@@ -154,9 +156,11 @@ const MyPractice = () => {
 
           if (response.status === 204) {
             setProfilePhoto('noimage')
+            setIsPending(false)
           } else {
             localStorage.setItem('image', response.data.data)
             setProfilePhoto(response.data)
+            setIsPending(false)
           }          
         } catch (error) {
           notify(errorGetImage)
@@ -244,9 +248,9 @@ const MyPractice = () => {
           <p>You have not logged any moods yet..</p>}
       </div>
       <div className="my-practice-image">
-        {profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt="" /> :
+        {isPending ? <div className="loading">Loading...</div> : profilePhoto.data ? <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto.data}`} alt=""/> :
           profilePhoto === 'noimage' ? <img className="img-my-practice" src={IMG('avatar.png')} alt="" /> :
-            <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto}`} alt="" />
+            <img className="img-my-practice" src={`data:image/png;base64,${profilePhoto}`} alt=""/>
         }
         <button onClick={toggleUploadMenu}>Change Pofile Picture {uploadImageMenu ? <>&#9650;</> : <>&#9660;</>}</button>
         {uploadImageMenu && <form encType='multipart/formdata' className="my-practice-upload">

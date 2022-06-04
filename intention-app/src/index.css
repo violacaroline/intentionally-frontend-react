@@ -439,6 +439,14 @@ input {
   height: 200px;
 }
 
+.my-practice-image .loading {
+  display: block;
+  border-radius: 50%;
+  margin: 20% auto;
+  width: 200px;
+  height: 200px;
+}
+
 .my-practice-upload .input-file {
   width: 0.1px;
   height: 0.1px;
