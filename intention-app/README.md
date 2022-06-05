@@ -2,7 +2,7 @@
 
 ## Description
 
-Intentionally is an application that offers users to log their moods and sends them intentions to use for their meditation practice. I then keeps track of these moods and displays them in a chart so the user can easily keep track of their general health.
+Intentionally is an application that offers users to log their moods and sends them intentions to use for their meditation practice. It then keeps track of these moods and displays them in a chart so that the user can easily track their general health.
 
 ## APIs
 
